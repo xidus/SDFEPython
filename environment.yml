@@ -1,0 +1,8 @@
+name: sdfepython
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - sphinx=4.4
+  - pip:
+    - sphinx-press-theme==0.8.0

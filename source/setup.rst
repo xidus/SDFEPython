@@ -1,0 +1,5 @@
+.. _setup:
+
+Anbefalet opsætning
+===================
+
