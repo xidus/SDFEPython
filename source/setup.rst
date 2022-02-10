@@ -36,6 +36,7 @@ Hurtigruten
     * Installere "just for me"
     * Placere filerne under ``C:\Users\<brugernavn>\AppData\Local\mambaforge``
     * "Register Mambaforge as my default Python"
+    * "Clear the package cache upon completion"
 
 
 .. _fuld_vejledning:
@@ -87,7 +88,7 @@ indstillinger. Vi følger de anbefalede valgmuligheder:
 * Ryd cache efter installation
 
 Førstnævnte er det bedste valg for de fleste. Hvis det **ikke** er det bedste
-valg for dig ved du godt og kan med fordel vælge anderledes. Alle andre bør
+valg for dig ved du det godt og kan med fordel vælge anderledes. Alle andre bør
 følge anbefalingen her.
 
 .. figure:: ./images/mamba-install-05.png
