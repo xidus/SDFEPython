@@ -114,7 +114,7 @@ i Windows' startmenu.
 
 Når prompten åbnes mødes du af et terminalvindue med følgende indhold:
 
-.. code-block::
+.. code-block:: none
 
     (base) C:\>
 
@@ -123,7 +123,7 @@ aldrig at bruge dette og i stedet oprette dedikerede miljøer til hvert enkelt
 projekt der arbejdes på. Denne webside er eksempelvis skabt i et miljø der
 hedder `sdfepython`, der er oprettet med kommandoen `mamba create`:
 
-.. code-block::
+.. code-block:: none
 
     (base) C:\>mamba create -n sdfepython python sphinx
 
@@ -239,7 +239,7 @@ hedder `sdfepython`, der er oprettet med kommandoen `mamba create`:
 
 Tryk `Y` for at bekræfte oprettelse af det nye miljø
 
-.. code-block::
+.. code-block:: none
 
     Finished zipp                                 (00m:00s)              12 KB     60 KB/s
     Finished pyopenssl                            (00m:00s)              49 KB    169 KB/s
@@ -275,7 +275,7 @@ Tryk `Y` for at bekræfte oprettelse af det nye miljø
 
 Herefter kan vi aktivere det nye miljø
 
-.. code-block::
+.. code-block:: none
 
     (base) C:\>mamba activate sdfepython
 
