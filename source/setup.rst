@@ -118,10 +118,10 @@ Når prompten åbnes mødes du af et terminalvindue med følgende indhold:
 
     (base) C:\>
 
-hvilket indikerer at du arbejder i Mambas standardmiljø `base`. Det anbefales
+hvilket indikerer at du arbejder i Mambas standardmiljø ``base``. Det anbefales
 aldrig at bruge dette og i stedet oprette dedikerede miljøer til hvert enkelt
 projekt der arbejdes på. Denne webside er eksempelvis skabt i et miljø der
-hedder `sdfepython`, der er oprettet med kommandoen `mamba create`:
+hedder ``sdfepython``, der er oprettet med kommandoen ``mamba create``:
 
 .. code-block:: none
 
@@ -237,7 +237,7 @@ hedder `sdfepython`, der er oprettet med kommandoen `mamba create`:
     Confirm changes: [Y/n]
 
 
-Tryk `Y` for at bekræfte oprettelse af det nye miljø
+Tryk ``Y`` for at bekræfte oprettelse af det nye miljø
 
 .. code-block:: none
 
