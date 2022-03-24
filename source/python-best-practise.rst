@@ -45,6 +45,7 @@ Antagelser: Ikke nødvendigt at nævne, hvad Python er. Brug korte, konkrete bes
     *   Python-projekt-filer i et versionsstyret arkiv
         *   Pyproject.toml
         *   setup.cfg
+        *   **NÆSTE SKRIDT: PEP 621 og flytning af metadata fra setup.cfg til pyproject.toml**
 
 Projektfiler (konfigurationsfiler og metadata) versus egentlig kildekode (og, separat herfra, testkode)
 
@@ -64,7 +65,7 @@ Projektfiler (konfigurationsfiler og metadata) versus egentlig kildekode (og, se
 
 *   Distribution?
 
-
+build metadata and project metadata,
 
 Fremgangsmåde
 -------------
