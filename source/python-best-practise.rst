@@ -2,15 +2,40 @@
 Bedste praksis
 ==============
 
-Følgende beskriver kort, hvordan man får en god start på et nyt Python-projekt. Det centrale spørgsmål er **Hvordan organiserer jeg en Python-pakke bedst?**. Præsentationen her går gradvist frem således, at pakken bliver bygget op fra bunden.
+Jævnfør ordbogen betyder ordet praksis en virkeliggørelse af noget tænkt eller planlagt. Det er noget, vi udøver eller gør. Bedste praksis er altså den bedste virkeliggørelse af noget, vi ønsker at opnå. Det er den bedste måde at få frem på for at opnå dét, vi ønsker at opnå.
 
-Mere konkret forsøger vi her at beskrive den nuværende, bedste praksis for brug af Python som programmeringssprog til genbrugelig kode [biblioteker] og egentlige programmer [applikationer, programmel]. Her skelner vi imidlertid ikke mellem bibliotek og applikation, da organisationen af kildekode, dokumentation, etc. i projektet som udgangspunkt kan foregå på samme måde langt hen ad vejen. (En mere specialiseret vejledning kan komme i en fremtidig version.)
+Følgende beskriver, hvordan man får en god start på et nyt Python-projekt. Det centrale spørgsmål er **Hvordan er vejen til at opbygge og vedligeholde en velorganiseret Python-pakke?**. Præsentationen går også gradvist frem således, at pakkens komponenter og hjælpemidler bliver beskrevet i en rækkefølge, som er hensigtsmæssig, når man bygger en pakke op fra bunden.
 
-Det er heller ikke formålet at gå i dybden med Pythons metodologi, økosystem, hovedorganisation og andre bidragende organisationer.
+*Objektet*
+
+Konkret forsøger vi her at beskrive den nuværende, bedste praksis for programmeringssproget Python. Vejledningen kan både bruges til opbygning af genbrugelig kode [biblioteker] og programmer [applikationer, programmel]. Indtil videre skelner denne vejledning ikke mellem bibliotek og applikation, da organisationen af kildekode, dokumentation, etc. i projektet som udgangspunkt kan foregå på samme måde langt hen ad vejen.
+
+*Informationskilder*
+
+Bedste praksis er dels udtrykt ved standarder, som defineres og implementeres i organiserede fællesskaber som The Python Software Foundation, men må også tilpasses de konkrete behov og begrænsninger, som er tilstede, når man skal gøre det bedste.
+
+Ved at komme så tæt på standarder (idealer såvel som tekniske krav) og alment gældende praksis, sikrer vi, at vi bruger vores værktøj og midler på den bedste mulige måde, når vi skal understøtte vores andre kerneopgaver med effektiv programmel.
+
+Følgende er derfor et nedslag i nuværende bedste praksis set fra Python-organisationens synsvinkel, herunder standard-værktøjs-udviklere (SetupTools, PIP), open-source-organisationer som folkene bag MambaForge, samt styrelsens og vores egne personlige erfaringer.
+
+.. Python-koden skal bygges, testes og dokumenteres, så udviklere kan vedligeholde koden, og brugere kan bruge det.
+
+.. *   Byg (udvikling) / dokumentér / test / brugertest
+.. *   Udgivelse: Byg pakke (pakke-1.2.10) og distribution (publicering)
+.. *   Ibrugtagning: Brugerinstallation, udrulning til miljøer som test, præproduktion og produktion.
+
+*Synsvinkel*
+
+Som nævnt er synsvinklen valgt, så beskrivelsen af bedste praksis har fokus på den gradvise overgang fra start til slutprodukt. Vi ser altså på fremgangsmåder og processer, vi som udviklere gennemgår, inden vi kommer frem til slutprodukterne. Med et proces-perspektiv giver vi også plads til at nævne mere generelle overvejelser og metoder, da de hænger naturligt sammen med mere Python-specifikke arbejdsgange.
+
+*Afgrænsning*
+
+Det er ikke formålet at gå i dybden med Pythons metodologi, økosystem, hovedorganisation og andre bidragende organisationer.
+
+Python-udvikling involverer en rækker værktøjer og processer, der ikke har med Python-programmering at gøre. Eksempelvis bruger vi Git til versionsstyring, og med GitHub-platformen har vi en central placering til den autoritative historik for arkiverne. Platformen kan desuden bruges som central udviklingsserver, der automatisk kan kvalitetssikre Python-koden, bygge dokumentation og andet. Her beskriver vi kun, hvordan man bruger værktøjer som disse fra et Python-synspunkt.
 
 **Det primære fokus er de standarder, konventioner og værktøjskombinationer, der virker godt idag.**
 
-Python-udvikling involverer desuden en rækker værktøjer og processer, der ikke har med Python-programmering at gøre. Eksempelvis bruger vi Git til versionsstyring, og med GitHub-platformen har vi en central placering til den autoritative historik for arkiverne. Platformen kan desuden bruges som central udviklingsserver, der automatisk kan kvalitetssikre Python-koden, bygge dokumentation og andet. Her beskriver vi kun, hvordan man bruger værktøjer som disse fra et Python-synspunkt.
 
 Underspørgsmål/processer
 ------------------------
@@ -71,8 +96,6 @@ Processer
 *   CI-infrastruktur
 
 
-
-
 Aspekter under bedste praksis
 =============================
 
@@ -112,23 +135,6 @@ Aspekter under bedste praksis
 ::
     The PyPA [Python Package Authority] recommends that any data files you wish to be accessible at run time be included inside the package.
 
-
-
-
-Afgrænsning/Begrænsninger
-=========================
-
-Bedste praksis er dels udtrykt ved standarder, som defineres og implementeres i organiserede fællesskaber som The Python Software Foundation, men må også tilpasses de konkrete behov og begrænsninger, som er tilstede, når man skal gøre det bedste.
-
-Ved at komme så tæt på standarder (idealer såvel som tekniske krav) og alment gældende praksis, sikrer vi, at vi bruger vores værktøj og midler på den bedste mulige måde, når vi skal understøtte vores andre kerneopgaver med effektiv programmel.
-
-Følgende er derfor et nedslag i nuværende bedste praksis set fra Python-organisationens synsvinkel, herunder standard-værktøjs-udviklere (SetupTools, PIP), open-source-organisationer som folkene bag MambaForge, samt styrelsens og vores egne personlige erfaringer.
-
-.. Python-koden skal bygges, testes og dokumenteres, så udviklere kan vedligeholde koden, og brugere kan bruge det.
-
-.. *   Byg (udvikling) / dokumentér / test / brugertest
-.. *   Udgivelse: Byg pakke (pakke-1.2.10) og distribution (publicering)
-.. *   Ibrugtagning: Brugerinstallation, udrulning til miljøer som test, præproduktion og produktion.
 
 
 
@@ -181,6 +187,7 @@ Bemærkninger:
     *   Pakke bør ikke have en masse overflødig funktionalitet med, herunder test-data.
 
 *   Dokumentations-materiale ud over README-filen og eventuelle små-filer til dokumentation, ligger i sin egen mappe af samme årsag som med kildekoden: Dokumentationen skal også bygges og udgives.
+
 
 Opsæt versionsstyring
 ---------------------
@@ -248,6 +255,7 @@ Disse filer og mapper er kun til brug af udvikleren og bør være adskilt fra ki
 
 **Python-miljø-opsætning**
 
+Vi starter med at installere
 
 Begynd med at oprette en konfigurationsfil ``environment-dev.yml`` med beskrivelsen dine afhængigheder som udvikler.
 
@@ -262,6 +270,9 @@ Begynd med at oprette en konfigurationsfil ``environment-dev.yml`` med beskrivel
 
 I ovenstående eksempel navngiver vi miljøet efter pakkens navn med suffikset ``-dev`` for at vise, at dette er miljø-opsætning for udviklere af pakken.
 
+Når nye pakker skal tilføjes, så skriv navn og version in i filen manuelt.
+
+
 Konfigurationsfilen kan læses af ``mamba`` på følgende måde:
 
 .. code-block :: none
@@ -274,6 +285,9 @@ Og miljøet kan herefter aktiveres med:
 
     (base)> mamba activate package-dev
     (package-dev)>
+
+
+**Resultat**
 
 Vi har nu adgang til Python 3.10
 
@@ -301,15 +315,13 @@ samt test-værktøjet ``pytest``
 , som vi kommer tilbage til nedenfor.
 
 
-.. note :: Når nye pakker skal tilføjes, kan de ...
 
 
-
-.. warning::
+.. warning:: Eksempel på ikke-anbefalet praksis
 
     Vi undlader at bruge ``mamba`` til at oprette miljø-konfigurationsfilen, fordi alle afhængigheder til de pakker, vi eksplicit skrev ovenfpr kommer med. Samtidig tilføjer kommandoen også en linje ``prefix:`` med konkret placering af miljøet på maskien, hvor nedenstående kommando blev skrevet.
 
-    Til reference er her skridtene til at lade mamba oprette miljø-filen:
+    Til reference er her skridtene til at lade ``mamba`` oprette miljø-filen:
 
     *   Opret et miljø til udvikling af pakken, her kaldet ``package``:
 
