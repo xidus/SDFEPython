@@ -6,48 +6,51 @@ Jævnfør ordbogen betyder ordet praksis en virkeliggørelse af noget tænkt ell
 
 Følgende beskriver, hvordan man får en god start på et nyt Python-projekt. Det centrale spørgsmål er **Hvordan er vejen til at opbygge og vedligeholde en velorganiseret Python-pakke?**. Præsentationen går også gradvist frem således, at pakkens komponenter og hjælpemidler bliver beskrevet i en rækkefølge, som er hensigtsmæssig, når man bygger en pakke op fra bunden.
 
-*Objektet*
 
-Konkret forsøger vi her at beskrive den nuværende, bedste praksis for programmeringssproget Python. Vejledningen kan både bruges til opbygning af genbrugelig kode [biblioteker] og programmer [applikationer, programmel]. Indtil videre skelner denne vejledning ikke mellem bibliotek og applikation, da organisationen af kildekode, dokumentation, etc. i projektet som udgangspunkt kan foregå på samme måde langt hen ad vejen.
+Afgrænsning
+-----------
 
-*Informationskilder*
+Konkret forsøger vi her at beskrive den nuværende, bedste praksis for programmeringssproget Python.
 
-Bedste praksis er dels udtrykt ved standarder, som defineres og implementeres i organiserede fællesskaber som The Python Software Foundation, men må også tilpasses de konkrete behov og begrænsninger, som er tilstede, når man skal gøre det bedste.
+Vejledningen kan både bruges til opbygning af genbrugelig kode [biblioteker] og programmer [applikationer, programmel]. Indtil videre skelner denne vejledning ikke mellem bibliotek og applikation, da organisationen af kildekode, dokumentation, etc. i projektet som udgangspunkt kan foregå på samme måde langt hen ad vejen.
 
-Ved at komme så tæt på standarder (idealer såvel som tekniske krav) og alment gældende praksis, sikrer vi, at vi bruger vores værktøj og midler på den bedste mulige måde, når vi skal understøtte vores andre kerneopgaver med effektiv programmel.
+Python-udvikling involverer en rækker værktøjer og processer, der ikke har med Python-programmering at gøre. Eksempelvis bruger vi Git til versionsstyring, og med GitHub-platformen har vi en central placering til den autoritative historik for arkiverne. Med GitHubs Actions kan platformen desuden bruges som central udviklingsserver, der automatisk kan kvalitetssikre Python-koden, bygge dokumentation og andet. Her beskriver vi kun, hvordan man bruger værktøjer som disse fra et Python-synspunkt.
+
+Indtil videre er fremgangsmåder til pakke-fremstilling [*en.* build] og distribution udeladt. Da vi i organisationen ikke har noget officielt sted at lægge færdigbyggede pakker, vi kan hente fra. Da vi anvender Python-distributionen MambaForge, er det også en mulighed at bygge en pakke i et format, der kan installeres af ``mamba``. Vi beskriver i stedet en fremgangsmåde, hvor brugeren installerer pakken lokalt med git og ``pip``.
+
+Det er desuden ikke formålet her at gå i dybden med Pythons metodologi, økosystem, hovedorganisation og andre bidragende organisationer.
+
+.. Dette kan komme med i en senere version af denne vejledning.
+
+**Det primære fokus her er de standarder, konventioner og værktøjskombinationer, der virker godt idag for os i SDFE.**
+
+
+Informationskilder
+------------------
+
+Bedste praksis er dels udtrykt ved standarder, som defineres og implementeres i organiserede fællesskaber som The Python Software Foundation, men må også tilpasses de konkrete behov og begrænsninger, som er tilstede i den konkrete situation, man sidder i.
+
+.. Ved at komme så tæt på standarder (idealer såvel som tekniske krav) og alment gældende praksis, sikrer vi, at vi bruger vores værktøj og midler på den bedste mulige måde, når vi skal understøtte vores andre kerneopgaver med effektiv programmel.
 
 Følgende er derfor et nedslag i nuværende bedste praksis set fra Python-organisationens synsvinkel, herunder standard-værktøjs-udviklere (SetupTools, PIP), open-source-organisationer som folkene bag MambaForge, samt styrelsens og vores egne personlige erfaringer.
-
-.. Python-koden skal bygges, testes og dokumenteres, så udviklere kan vedligeholde koden, og brugere kan bruge det.
-
-.. *   Byg (udvikling) / dokumentér / test / brugertest
-.. *   Udgivelse: Byg pakke (pakke-1.2.10) og distribution (publicering)
-.. *   Ibrugtagning: Brugerinstallation, udrulning til miljøer som test, præproduktion og produktion.
 
 *Synsvinkel*
 
 Som nævnt er synsvinklen valgt, så beskrivelsen af bedste praksis har fokus på den gradvise overgang fra start til slutprodukt. Vi ser altså på fremgangsmåder og processer, vi som udviklere gennemgår, inden vi kommer frem til slutprodukterne. Med et proces-perspektiv giver vi også plads til at nævne mere generelle overvejelser og metoder, da de hænger naturligt sammen med mere Python-specifikke arbejdsgange.
 
-*Afgrænsning*
 
-Det er ikke formålet at gå i dybden med Pythons metodologi, økosystem, hovedorganisation og andre bidragende organisationer.
+Underspørgsmål/processer/indhold
+--------------------------------
 
-Python-udvikling involverer en rækker værktøjer og processer, der ikke har med Python-programmering at gøre. Eksempelvis bruger vi Git til versionsstyring, og med GitHub-platformen har vi en central placering til den autoritative historik for arkiverne. Platformen kan desuden bruges som central udviklingsserver, der automatisk kan kvalitetssikre Python-koden, bygge dokumentation og andet. Her beskriver vi kun, hvordan man bruger værktøjer som disse fra et Python-synspunkt.
+*   Mappestruktur: Hvordan skal jeg organisere projektets filer og data i mapper under projektet?
 
-**Det primære fokus er de standarder, konventioner og værktøjskombinationer, der virker godt idag.**
-
-
-Underspørgsmål/processer
-------------------------
-
-*   Hvordan skal jeg organisere projektets filer og data i mapper under projektet [mappestruktur]?
+*   Hvad er den minimale konfiguration, der skal til for at starte et nyt Python-projekt?
 
 *   Hvordan skal pakken installeres?
 
-    *   Fra et stabilitetssynspunkt: reproducérbare installationer
-    *   Fra brugerens synspunkt: ...
-
-*   Hvad er den minimale konfiguration, der skal til for at starte et nyt Python-projekt?
+    *   Fra udviklerens synspunkt
+    *   Fra brugerens synspunkt
+    *   Reproducérbare installationer med miljø-konfigurationer.
 
 *   Hvordan sætter jeg test-funktionalitet op?
 
@@ -58,90 +61,14 @@ Underspørgsmål/processer
     *   Kildekode: *typing annotations* i Python
     *   Test-kode: tydelige, forståelige, beskrivende funktionsnavne
 
-Processer
----------
-
-*   Dokumentation
-
-    *   Design-dokumentation
-    *   Brugsscenarier
-
-*   (Givet forståelse for opgaven) Skriv testene først [*en.* test-driven developement, TDD].
-
-    *   Nøgleord: Refaktorisering, teknisk gæld
-    *   Refaktorisering: Alle (enheds)tests tester én ting. De er den første grund til at refaktorisere.
-
-*   Installér pakker
-
-    *   Virtuelt miljø med ``mamba``
-
-        *   Bruger-opsætning
-        *   Udvikler-opsætning
-
-    *   Installation af pakken med ``pip``
-
-        *   Installér det rigtige sted med ``python -m pip install --upgrade pip``
-        *   Opdatér ``pip`` med ``python -m pip install --upgrade pip`` . (``--upgrade`` kan skrives kort med ``-U``)
-        *   Installér pakken lokalt med ``python -m pip install -e .`` i roden af mappen.
 
 
-*   Skriv koden
-
-    *   TDD
-
-    *   Typing annotations
-
-        *   http://mypy-lang.org/
-
-*   CI-infrastruktur
-
-
-Aspekter under bedste praksis
-=============================
-
-*   Sikkerhedsovervejelser
-
-    *   Opdaterede versioner
-    *   Hvordan véd jeg, om en pakke, jeg anvender er forsvarlig at bruge?
-
-*   Test og testdækning [*en.* code coverage]
-
-    *   tests/
-    *   pytest
-
-        *   Opsætning i pyproject.toml, herunder output til code coverage værktøj
-        *   fixtures
-        *   conftest.py
-
-    *   codecov
-
-    *   CI
-
-        *   GitHub Actions
-        *   codecov.io
-
-*   Pakkens mappestruktur
-
-*   Kode-dokumentation, typing, docstrings
-
-    *   `Sphinx https://www.sphinx-doc.org/`
-
-
-*   Ikke-pakke-filer (datafiler)
-
-    *   Placering af pakkens datafiler i pakken selv
-    *   Adgang til pakkens egne datafiler.
-
-::
-    The PyPA [Python Package Authority] recommends that any data files you wish to be accessible at run time be included inside the package.
-
-
-
-
-Mappestruktur
-=============
+Mappestruktur og konfigurationer
+================================
 
 Generelt er valget af mappestruktur vigtig for understøttelse de forskellige processer i projekt-livscyklussen. Kildekoden er versionsstyret sammen med alt andet kildemateriale i en versionsstyret projekt-mappe på GitHub. Hver koderevision har tilknyttet dokumentation og testfunktionalitet, samt al anden konfiguration til proces-understøttelse. Formålet med at have alt samlet er, at hvor alle komponenter i projektet følges ad og for en given en Git-revision fungerer sammen.
+
+Konsekvensen af denne fremgangsmåde er blandt andet, at der for en given revision af koden ikke bare findes tests, der dækker koden, men også tilhørende dokumentation, der beskriver funktionaliteten i den pågældende revision.
 
 Følgende er et eksempel på mappestrukturen for en færdig Python-pakke i et Git-arkiv:
 
@@ -187,6 +114,25 @@ Bemærkninger:
     *   Pakke bør ikke have en masse overflødig funktionalitet med, herunder test-data.
 
 *   Dokumentations-materiale ud over README-filen og eventuelle små-filer til dokumentation, ligger i sin egen mappe af samme årsag som med kildekoden: Dokumentationen skal også bygges og udgives.
+
+*   Alle andre mapper og filer er konfigurationer, scripts og andet til brug primært for udviklere samt for brugeren, der skal installere pakken ud fra arkivet.
+
+
+Udviklerens synsvinkel
+----------------------
+
+| Som udvikler
+| skal du have nogle byggematerialer,
+| der gør det muligt at bygge pakken.
+
+.. Som udvikler har du to primære modtagere:
+
+.. *   dig selv og andre udviklere på projektet
+.. *   brugeren / modtageren.
+
+Filer, som understøtter alt arbejde med kode, dokumentation, etc. ligger som hovedregel i arkivets rod eller i mapper herunder, som grupperer efter formål eller værktøj.
+
+Disse filer og mapper er kun til brug af udvikleren og bør være adskilt fra kildekode, test-funktionalitet, dokumentation og andre slutprodukter.
 
 
 Opsæt versionsstyring
@@ -236,26 +182,10 @@ Begynd med at tilpasse README-filen, som GitHub automatisk oprettede for dig. De
 **I det følgende, bliver alle ændringer foretaget lokalt, med mindre andet er angivet.**
 
 
-Opbyg mappestrukturen
----------------------
+Python-miljø-opsætning
+----------------------
 
-| Som udvikler
-| skal du have nogle byggematerialer,
-| der gør det muligt at bygge pakken.
-
-.. Som udvikler har du to primære modtagere:
-
-.. *   dig selv og andre udviklere på projektet
-.. *   brugeren / modtageren.
-
-Filer, som understøtter alt arbejde med kode, dokumentation, etc. ligger som hovedregel i arkivets rod eller i mapper herunder, som grupperer efter formål eller værktøj.
-
-Disse filer og mapper er kun til brug af udvikleren og bør være adskilt fra kildekode, test-funktionalitet, dokumentation og andre slutprodukter.
-
-
-**Python-miljø-opsætning**
-
-Vi starter med at installere
+Vi starter med at installere et nyt udviklingsmiljø med ``mamba``, så vi har en isoleret projekt-opsætning, hvor vi kan fastholde afhængigheder.
 
 Begynd med at oprette en konfigurationsfil ``environment-dev.yml`` med beskrivelsen dine afhængigheder som udvikler.
 
@@ -343,13 +273,127 @@ samt test-værktøjet ``pytest``
             (package-dev)> mamba env export -f environment-dev.yml
 
 
+Vi har nu en miljø-opsætning til os selv og andre udviklere, som definerer de fæles værktøjer, der er relevante under udviklingen af pakken.
 
-Brugeren og installation
-------------------------
+
+Python-konfigurationsfiler
+--------------------------
+
+En ren Python-pakke bliver idag defineret med følgende opsætning:
+
+
+.. code-block:: none
+
+    package
+    ├── LICENSE
+    ├── pyproject.toml
+    ├── README.md
+    ├── setup.cfg
+    └── src
+        └── package
+            ├── module1.py
+            ├── module2.py
+            └── __init__.py
+
+Det er normal konvention at kalde rodmappen det samme som pakken-mappen inde i ``src``-mappen. ``src``-opsætningen er efterhånden ved at blive alment kendt, og strukturen er blandt andet valgt, fordi det tvinger én til at installere pakken lokalt, når man skal teste koden.
+
+Python-fortolkeren betragter en mappe med python-moduler som en pakke. Hvis pakke-mappen ``package`` lå direkte i roden af projekt-mappen, kan test-funktionalitet, der kører fra samme mappe ikke importere en installeret version af pakken, fordi Python-fortolkeren starter med at lede efter importerede moduler i samme mappe, som test-programmet kører i.
+
+De to filer i projekt-mappen:
+
+*   ``pyproject.toml``
+*   ``setup.cfg``
+
+udgør vores pakke-opsætning. ``pyproject.toml`` fortæller, at vi har med et Python-projekt at gøre, mens ``setup.cfg`` indeholder konfiguration til standard-pakke-værktøjet `SetupTools`_. Med de nyere versioner af SetupTools er man gået væk fra at bruge en ``setup.py``-fil til kun at bruge en konfigurationsfil. ``setup.py`` kan stadig bruges, og det er stadig meget normalt at se denne forældede praksis i eksisterende Python-pakker.
+
+``setup.cfg`` indeholder alle informationer om pakken, mens ``pyproject.toml`` som minimum skal indeholde konfiguration af pakke-værktøj, som altså her er SetupTools. Der findes idag alternative pakke-væktøjer med forskellig popularitet, som lægger al deres konfiguration ind i ``pyproject.toml``. Vi anbefaler dog, at vi bruger SetupTools, som er mere bredt anvendt.
+
+Følgende er en minimal opsætning for ``pyproject.toml`` samt et eksempel på pakke-metadata i ``setup.cfg``.
+
+.. code-block :: toml
+
+    # pyproject.toml
+    [build-system]
+    requires = [
+        'setuptools>=43.0.0'
+    ]
+    build-backend = 'setuptools.build_meta'
+
+.. code-block :: ini
+
+    ; setup.cfg
+    [metadata]
+    name = package
+    description = Best Practise Package
+    long_description = file: README.md
+    long_description_content_type = text/markdown; charset=UTF-8
+    url = https://github.com/...
+    author = Firstname Lastname
+    author_email = firstname.lastname@sdfe.dk
+    license = MIT
+    license_file = LICENSE
+    project_urls =
+        Documentation = https://Kortforsyningen.github.io/...
+        Source = https://github.com/Kortforsyningen/...
+        Tracker = https://github.com/.../issues
+
+    [options]
+    zip_safe = False
+    package_dir =
+        = src
+    packages = find:
+    platforms = any
+    python_requires = >=3.10
+
+Med ovenstående opsætning kan Pythons pakke-styringsværkøj ``pip`` selv finde ud af at installere pakken ``setuptools``, som bygger pakken med de givne metadata, som ``pip`` så installerer.
+
+For at installere pakken, så den er tilgængelig for Python-fortolkeren, vi bruger i conda-miljøet ``package-dev``, bruger vi ``pip`` som et modul i det aktiverede miljø, så vi er sikre på, at vi ikke bruger en anden ``pip``-kommando, der kan være tilgængelig i terminalen:
+
+.. code-block :: none
+
+    (package-dev)> python -m pip install -e .
+
+Læs mere om de enkelte konfigurationsmuligheder i dokumentationen for `SetupTools`_.
+
+.. _`SetupTools`: https://setuptools.pypa.io/
+
+
+Test-funktionalitet
+-------------------
+
+Denne vejledning har et separat kapitel om at tests og anden kvalitetssikring i Python. Her nævner vi kort, at al test-funktionalitet bør ligge separat i sin egen mappe kaldet ``tests/``.
+
+Den rene Python-pakke med test-funktionaliteten ser således ud:
+
+.. code-block:: none
+
+    package
+    ├── environment-dev.yml
+    ├── LICENSE
+    ├── pyproject.toml
+    ├── README.md
+    ├── setup.cfg
+    ├── src
+    │   └── package
+    │       ├── module1.py
+    │       ├── module2.py
+    │       └── __init__.py
+    └── tests
+        └── package
+            ├── test_module1.py
+            └── test_module2.py
+
+Bemærk, at test-koden følger samme struktur som pakkens undermapper.
+
+
+
+
+Brugerens synsvinkel: installation og dokumentation
+---------------------------------------------------
 
 For brugeren er kun produktet og den brugervendte dokumentation relevant.
 
-I eksemplet, vi bygger op her, beder vi brugeren om at hente kodearkivet ned med Git. Her skal brugeren først checke koden ud og dernæst manuelt oprette et miljø og installere de pakker (Afhængigheder), som vores program skal bruge. Python er forudsat installeret hos brugeren, og det er antaget, at brugeren kan bruge det.
+Her kan brugeren installere pakken ved at klone projekt-mappen ned med Git. Her skal brugeren først checke koden ud og dernæst manuelt oprette et miljø og installere de pakker (Afhængigheder), som vores program skal bruge. Python er forudsat installeret hos brugeren, og det er antaget, at brugeren kan bruge det.
 
 Man kan i ovenstående tilfælde distribuere koden til et pakke-arkiv som the Python Package Index (PyPI). For brugeren ville det derfor være væsentligt lettere at installere pakken i et arbitrært mamba-miljø.
 
@@ -357,71 +401,24 @@ Der kan være flere grunde til, at vi ikke distribuerer koden til et (globalt) P
 
 
 
-Python-konfigurationsfiler
---------------------------
-
-Python-projektfiler knyttet til pakken
-
-*   ``pyproject.toml``
-*   ``setup.cfg``
-*   ``environment.yml``
+Dokumentation
+=============
 
 
-Test-funktionalitet
+[...]
 
 
 
-Grundlæggende begreber, mekanismer og værktøjer
-================================================
+Typing annotations
+==================
+
+[...]
+
+Skal dete afsnit over i vætkrøjer, hvor vi kan tale om ``mypy``?
 
 
-Relevante processer for et Python-projekt
------------------------------------------
-
-Antagelser: Ikke nødvendigt at nævne, hvad Python er. Brug korte, konkrete beskrivelser af processerne, og hvad de enkeltvis kræver af 'økosystemet'
-
-*   Python-distribution
-*   Installations-værktøjer
-    *   [PIP](https://pip.pypa.io/)
-    *   `conda` (undgå)
-    *   `mamba` (fordele)
 
 
-*   Andre, konkrete værktøjer
-    *   SetupTools
-
-
-Projektfiler (konfigurationsfiler og metadata) versus egentlig kildekode (og, separat herfra, testkode)
-
-*   Kvalitetssikring af koden
-
-    *   Kvalitetssikring af revisioner:
-
-        *   Pre-commit-hooks
-
-    *   Énsretning af syntax:
-
-        *   Black
-
-    *   Vedligeholdelses-kvalitet
-
-        *   `wily`
-
-    *   Test-dækning
-
-        *   pytest-cov
-
-*   Pakkeværktøjer
-
-    *   SetupTools
-    *   Hvilket format? `wheel` -> .whl
-
-*   Distribution
-
-    *   GitHub? -> Hvordan inkluderer i setup.cfg
-
-
-build metadata and project metadata,
 
 Fremgangsmåde/checkliste
 ========================
@@ -429,25 +426,32 @@ Fremgangsmåde/checkliste
 *   Installér nyeste version af Python med MambaForge
 
 *   Hav en fornuftig mappestruktur, der understøtter forskellige processer i programellets livscyklus
-    *   Kildefiler
-    *   ...
+
+    *   Kildefiler i deres respektive mapper, så som ``docs/``, ``tests/`` og ``src/``.
+    *   Hav alle andre filer og mapper i roden af projekt-mappen.
 
 *   Opret et moderne Python-projekt
 
     *   Brug `pyproject.toml`
-        *   Denne konfigurationsfil bruges til basal opsætning af
-        projektet og de værktøjer, der kan læse deres
-        konfiurationer i denne, eksempelvis `black` og `pytest`.
+
+        *   Denne konfigurationsfil bruges til basal opsætning af projektet og de værktøjer, der kan læse deres konfigurationer i denne, eksempelvis `black` og `pytest`.
 
     *   Brug `setup.cfg`
-    *   Bemærk, at der efter setuptools>=43.0.0 ikke er behov for en
-        setup.py-fil.
+
+        *   Bemærk, at der efter setuptools>=43.0.0 ikke er behov for en ``setup.py``-fil.
+
+
+
+
 
 
 Udeståender
 ===========
 
-*   Branching-strategi
+
+
+
+*   Branching-strategi?
 
 *   Hvordan vedligeholder (udgiver og versionerer) man et python-projekt med to eller flere pakker i src?
 
@@ -464,12 +468,31 @@ Udeståender
 
         https://conda-incubator.github.io/conda-lock/
 
+*   Sikkerheds-check/-skanning af pakker
 
-Mulige, fremtidige alternativer
-===============================
+*   Præstationsmåling med performance-målere
 
-``setuptools_scm``
-------------------
+*   Særlige emner?:
 
-*   https://setuptools.pypa.io/en/latest/userguide/extension.html#adding-support-for-revision-control-systems
+    *   Machine learning
+    *   Concurrent programming, parallel computing
+    *   Python i dybden
 
+        *   generators
+        *   coroutines
+        *   decorators
+        *   async/await
+        *   ...
+
+*   Pakkeværktøjer
+
+    *   SetupTools
+    *   Hvilket format? `wheel` -> .whl
+
+*   Distribution
+
+    *   GitHub? -> Hvordan inkluderer i setup.cfg
+
+*   Begreber
+
+    *   build metadata and project metadata
