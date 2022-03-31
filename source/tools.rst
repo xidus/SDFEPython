@@ -16,11 +16,13 @@ En række værktøjer kan være fordelagtige at bruge i forbindelse med Pythonud
 
 
 Integreret udviklingsmiljø
---------------------------
+==========================
 
 Det integrerede udviklingsmiljø [*en* integrated development environment, IDE] er typisk et tekstredigeringsværktøj, der giver en udvikler mulighed for at redigere kildekode og helt eller delvist automatisk udføre rutine-opgaver så som at bygge, teste, debug'e, analysere og dokumentere kode med værktøjer (ofte plugins), som er integrerede i tekstredigeringsværktøjet.
 
-IDE'er som Visual Studio Code [VSCode] eller Sublime Text [ST] har indbygget mulighed for at tilføje udvidelser [extensions i VSCode, packages i ST], der er specielt udviklet til IDE'en. Nogle udvidelser kan dog afhænge af, at du selv installerer nogle pakker ved siden af.
+**Microsoft Visual Studio Code [VSCode]**
+
+IDE'er som VSCode har indbygget mulighed for at tilføje udvidelser [extensions i VSCode], der er specielt udviklet til IDE'en. Nogle udvidelser kan dog afhænge af, at du selv installerer nogle pakker ved siden af.
 
 Det er ikke alle udvidklingsværktøjer, der er knyttet til en given IDE. Der findes indbyggede og tredjeparts-biblioteker, som både kan integreres med en IDE, men også kan køre selvstændigt.
 
@@ -30,7 +32,7 @@ Disse værktøjer kan typisk bruges alene, men fordi IDE'er som VSCode automatis
 
 
 Løbende kodetilretning [*en.* linting]
---------------------------------------
+======================================
 
 *...*
 
@@ -44,7 +46,11 @@ Python core developer Jack Diederich udtrykker med sætningen `*All effort feels
 
 Ikke alle er enige med måden ``black`` formatterer koden på, men det er énsartet, læsbart, og man behøver ikke selv at skrive kode på samme måde. ``black`` retter bare koden til.
 
-Black kan sættes op i ``pyproject.toml``.
+Black kan tilpasses i ``pyproject.toml``.
+
+
+.. _`black` : https://github.com/psf/black
+
 
 
 Test-rammeværk
@@ -63,10 +69,6 @@ Kodeanalyse
 
 For Python er der mulighed for at bruge type-annoteringer i koden, hvis korrekthed kan checkes af et ekstra `mypy`
 
-
-
-
-.. _`black` : https://github.com/psf/black
 
 
 
