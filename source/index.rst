@@ -23,6 +23,7 @@ over tid.
 
     setup
     tools
+    package
     test
     pakker
-
+    referencer
