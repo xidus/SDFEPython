@@ -40,7 +40,7 @@ Automatisk kodeformatering
 
 Python core developer Jack Diederich udtrykker med sætningen `*All effort feels like useful effort* https://youtu.be/rrBJVMyD-Gs?t=178` sin erfaring med blandt andet kvalitetssikring af kode med *code review* og *linting*, hvor man bruger tid på at tale om forbedringer af kode-opsætningen. Det føles nyttigt, fordi man har brugt tid på det. Det er bare ikke dét, der giver god kode.
 
-`black`_ er et værktøj, der automatisk reformaterer kode. Formålet med værktøjet er, at lade værktøjet styre hvordan koden fremstår, så man kan rbuge sin tid på vigtigere aspekter af koden.
+`black`_ er et værktøj, der automatisk reformaterer kode. Formålet med værktøjet er, at lade værktøjet styre hvordan koden fremstår, så man kan bruge sin tid på vigtigere aspekter af koden.
 
 Ikke alle er enige med måden ``black`` formatterer koden på, men det er énsartet, læsbart, og man behøver ikke selv at skrive kode på samme måde. ``black`` retter bare koden til.
 

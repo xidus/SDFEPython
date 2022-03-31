@@ -4,7 +4,7 @@ Bedste praksis
 
 Jævnfør ordbogen betyder ordet praksis en virkeliggørelse af noget tænkt eller planlagt. Det er noget, vi udøver eller gør. Bedste praksis er altså den bedste virkeliggørelse af noget, vi ønsker at opnå. Det er den bedste måde at få frem på for at opnå dét, vi ønsker at opnå.
 
-Følgende beskriver, hvordan man får en god start på et nyt Python-projekt. Det centrale spørgsmål er **Hvordan er vejen til at opbygge og vedligeholde en velorganiseret Python-pakke?**. Præsentationen går også gradvist frem således, at pakkens komponenter og hjælpemidler bliver beskrevet i en rækkefølge, som er hensigtsmæssig, når man bygger en pakke op fra bunden.
+Følgende beskriver, hvordan man får en god start på et nyt Python-projekt. Det centrale spørgsmål er **Hvordan er vejen til at opbygge og vedligeholde en velorganiseret Python-pakke?**. Teksten går også gradvist frem således, at pakkens komponenter og hjælpemidler bliver beskrevet i en rækkefølge, som er hensigtsmæssig, når man bygger en pakke op fra bunden.
 
 
 Afgrænsning
@@ -22,13 +22,14 @@ Det er desuden ikke formålet her at gå i dybden med Pythons metodologi, økosy
 
 .. Dette kan komme med i en senere version af denne vejledning.
 
-**Det primære fokus her er de standarder, konventioner og værktøjskombinationer, der virker godt idag for os i SDFE.**
+**Det primære fokus her er de standarder, konventioner og værktøjskombinationer, der virker godt i dag for os i SDFE.**
 
 
 Informationskilder
 ------------------
 
-Bedste praksis er dels udtrykt ved standarder, som defineres og implementeres i organiserede fællesskaber som The Python Software Foundation, men må også tilpasses de konkrete behov og begrænsninger, som er tilstede i den konkrete situation, man sidder i.
+Bedste praksis er dels udtrykt ved standarder, som defineres og implementeres i organiserede fællesskaber som `The Python
+Software Foundation`_, men må også tilpasses de konkrete behov og begrænsninger, som er tilstede i den konkrete situation, man sidder i.
 
 .. Ved at komme så tæt på standarder (idealer såvel som tekniske krav) og alment gældende praksis, sikrer vi, at vi bruger vores værktøj og midler på den bedste mulige måde, når vi skal understøtte vores andre kerneopgaver med effektiv programmel.
 
@@ -66,7 +67,7 @@ Underspørgsmål/processer/indhold
 Mappestruktur og konfigurationer
 ================================
 
-Generelt er valget af mappestruktur vigtig for understøttelse de forskellige processer i projekt-livscyklussen. Kildekoden er versionsstyret sammen med alt andet kildemateriale i en versionsstyret projekt-mappe på GitHub. Hver koderevision har tilknyttet dokumentation og testfunktionalitet, samt al anden konfiguration til proces-understøttelse. Formålet med at have alt samlet er, at hvor alle komponenter i projektet følges ad og for en given en Git-revision fungerer sammen.
+Generelt er valget af mappestruktur vigtig for understøttelse de forskellige processer i projekt-livscyklussen. Kildekoden er versionsstyret sammen med alt andet kildemateriale i en versionsstyret projekt-mappe på GitHub. Hver koderevision har tilknyttet dokumentation og testfunktionalitet, samt al anden konfiguration til proces-understøttelse. Formålet med at have alt samlet er, at hvor alle komponenter i projektet følges ad og for en given Git-revision fungerer sammen.
 
 Konsekvensen af denne fremgangsmåde er blandt andet, at der for en given revision af koden ikke bare findes tests, der dækker koden, men også tilhørende dokumentation, der beskriver funktionaliteten i den pågældende revision.
 
@@ -249,7 +250,7 @@ samt test-værktøjet ``pytest``
 
 .. warning:: Eksempel på ikke-anbefalet praksis
 
-    Vi undlader at bruge ``mamba`` til at oprette miljø-konfigurationsfilen, fordi alle afhængigheder til de pakker, vi eksplicit skrev ovenfpr kommer med. Samtidig tilføjer kommandoen også en linje ``prefix:`` med konkret placering af miljøet på maskien, hvor nedenstående kommando blev skrevet.
+    Vi undlader at bruge ``mamba`` til at oprette miljø-konfigurationsfilen, fordi alle afhængigheder til de pakker, vi eksplicit skrev ovenfor kommer med. Samtidig tilføjer kommandoen også en linje ``prefix:`` med konkret placering af miljøet på maskinen, hvor nedenstående kommando blev skrevet.
 
     Til reference er her skridtene til at lade ``mamba`` oprette miljø-filen:
 
@@ -273,7 +274,7 @@ samt test-værktøjet ``pytest``
             (package-dev)> mamba env export -f environment-dev.yml
 
 
-Vi har nu en miljø-opsætning til os selv og andre udviklere, som definerer de fæles værktøjer, der er relevante under udviklingen af pakken.
+Vi har nu en miljø-opsætning til os selv og andre udviklere, som definerer de fælles værktøjer, der er relevante under udviklingen af pakken.
 
 
 Python-konfigurationsfiler
