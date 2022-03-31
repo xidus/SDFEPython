@@ -9,7 +9,7 @@ på for at opnå dét, vi ønsker at opnå.
 
 Følgende beskriver, hvordan man får en god start på et nyt Python-projekt. Det
 centrale spørgsmål er **Hvordan er vejen til at opbygge og vedligeholde en
-velorganiseret Python-pakke?**. Præsentationen går også gradvist frem således,
+velorganiseret Python-pakke?**. Teksten går også gradvist frem således,
 at pakkens komponenter og hjælpemidler bliver beskrevet i en rækkefølge, som er
 hensigtsmæssig, når man bygger en pakke op fra bunden.
 
@@ -54,14 +54,9 @@ Informationskilder
 ------------------
 
 Bedste praksis er dels udtrykt ved standarder, som defineres og implementeres i
-organiserede fællesskaber som The Python Software Foundation, men må også
+organiserede fællesskaber som `The Python Software Foundation`_, men må også
 tilpasses de konkrete behov og begrænsninger, som er tilstede i den konkrete
 situation, man sidder i.
-
-.. Ved at komme så tæt på standarder (idealer såvel som tekniske krav) og alment
-.. gældende praksis, sikrer vi, at vi bruger vores værktøj og midler på den
-.. bedste mulige måde, når vi skal understøtte vores andre kerneopgaver med
-.. effektiv programmel.
 
 Følgende er derfor et nedslag i nuværende bedste praksis set fra
 Python-organisationens synsvinkel, herunder standard-værktøjs-udviklere
@@ -139,7 +134,7 @@ processer i projekt-livscyklussen. Kildekoden er versionsstyret sammen med alt
 andet kildemateriale i en versionsstyret projekt-mappe på GitHub. Hver
 koderevision har tilknyttet dokumentation og testfunktionalitet, samt al anden
 konfiguration til proces-understøttelse. Formålet med at have alt samlet er, at
-hvor alle komponenter i projektet følges ad og for en given en Git-revision
+hvor alle komponenter i projektet følges ad og for en given Git-revision
 fungerer sammen.
 
 Konsekvensen af denne fremgangsmåde er blandt andet, at der for en given
@@ -412,9 +407,9 @@ samt test-værktøjet ``pytest``
 .. warning:: Eksempel på ikke-anbefalet praksis
 
     Vi undlader at bruge ``mamba`` til at oprette miljø-konfigurationsfilen,
-    fordi alle afhængigheder til de pakker, vi eksplicit skrev ovenfpr kommer
+    fordi alle afhængigheder til de pakker, vi eksplicit skrev ovenfor kommer
     med. Samtidig tilføjer kommandoen også en linje ``prefix:`` med konkret
-    placering af miljøet på maskien, hvor nedenstående kommando blev skrevet.
+    placering af miljøet på maskinen, hvor nedenstående kommando blev skrevet.
 
     Til reference er her skridtene til at lade ``mamba`` oprette miljø-filen:
 
@@ -436,7 +431,6 @@ samt test-værktøjet ``pytest``
         .. code-block :: none
 
             (package-dev)> mamba env export -f environment-dev.yml
-
 
 
 **Miljø-opsætning til brugerinstallation**
@@ -484,7 +478,7 @@ Og miljøet kan herefter aktiveres med:
 Vi har nu en miljø-opsætning til os selv og andre udviklere, som definerer de
 fælles værktøjer, der er relevante under udviklingen af pakken.
 
-vi har også en tilsvarende opsætning for brugeren, som skal installere pakken.
+Vi har også en tilsvarende opsætning for brugeren, som skal installere pakken.
 
 Disse to filer definerer de afhængigheder, vi starter pakken med. Tilføj disse
 filer til versonsstyringen, og de kan nu deles og ændres på tværs af revisioner
@@ -623,8 +617,10 @@ Bemærk, at test-koden følger samme struktur som pakkens undermapper.
 Dokumentation
 -------------
 
-
-
+*   Dokumentationen bør være versionsstyret og i hver revision passe til koden,
+    den følger.
+*   På denne måde kan man altid gå tilbage til en tidligere version af koden og
+    se, hvordan den pågældende version skulle bruges.
 
 De relevante konfigurations-filer og mapper med dokumentationsmateriale og
 opsætning i vores eksempel ser således ud:
