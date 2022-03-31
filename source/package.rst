@@ -1,5 +1,5 @@
 ===============
-Pakke-ppbygning
+Pakke-opbygning
 ===============
 
 Jævnfør ordbogen betyder ordet praksis en virkeliggørelse af noget tænkt eller
