@@ -1,6 +1,6 @@
-==============
-Bedste praksis
-==============
+===============
+Pakke-ppbygning
+===============
 
 Jævnfør ordbogen betyder ordet praksis en virkeliggørelse af noget tænkt eller
 planlagt. Det er noget, vi udøver eller gør. Bedste praksis er altså den bedste
@@ -57,6 +57,8 @@ Bedste praksis er dels udtrykt ved standarder, som defineres og implementeres i
 organiserede fællesskaber som `The Python Software Foundation`_, men må også
 tilpasses de konkrete behov og begrænsninger, som er tilstede i den konkrete
 situation, man sidder i.
+
+.. _`The Python Software Foundation`: https://www.python.org/psf/
 
 Følgende er derfor et nedslag i nuværende bedste praksis set fra
 Python-organisationens synsvinkel, herunder standard-værktøjs-udviklere
