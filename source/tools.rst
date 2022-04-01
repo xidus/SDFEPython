@@ -4,8 +4,7 @@
 Udviklingsværktøjer
 ===================
 
-Ud over kode-gennemsyn af kollegaer, så er der til ethvert projekt et behov for
-en standard for, hvordan koden bør bygges op. En række værktøjer kan være
+En række værktøjer kan være
 fordelagtige at bruge i forbindelse med Pythonudvikling. Følgende er en række
 anbefalinger, der kan øge kvaliteten af den udviklede kode. De kan hjælpe med
 følgende:
