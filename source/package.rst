@@ -2,10 +2,6 @@
 Pakke-opbygning
 ===============
 
-Jævnfør ordbogen betyder ordet praksis en virkeliggørelse af noget tænkt eller
-planlagt. Det er noget, vi udøver eller gør. Bedste praksis er altså den bedste
-virkeliggørelse af noget, vi ønsker at opnå. Det er den bedste måde at få frem
-på for at opnå dét, vi ønsker at opnå.
 
 Følgende beskriver, hvordan man får en god start på et nyt Python-projekt. Det
 centrale spørgsmål er **Hvordan er vejen til at opbygge og vedligeholde en
@@ -37,7 +33,7 @@ disse fra et Python-synspunkt.
 Indtil videre er fremgangsmåder til pakke-fremstilling [*en.* build] og
 distribution udeladt. Da vi i organisationen ikke har noget officielt sted at
 lægge færdigbyggede pakker, vi kan hente fra. Da vi anvender
-Python-distributionen MambaForge, er det også en mulighed at bygge en pakke i
+Python-distributionen MambaForge, er det en mulighed at bygge en pakke i
 et format, der kan installeres af ``mamba``. Vi beskriver i stedet en
 fremgangsmåde, hvor brugeren installerer pakken lokalt med git og ``pip``.
 
@@ -177,9 +173,9 @@ Bemærkninger:
 Udviklerens synsvinkel
 ----------------------
 
-| Som udvikler
-| skal jeg have nogle byggematerialer,
-| der gør det muligt at bygge, dokumentere og kvalitetssikre pakken.
+    | *Som udvikler*
+    | *skal jeg have nogle byggematerialer,*
+    | *der gør det muligt at bygge, dokumentere og kvalitetssikre pakken.*
 
 Som udvikler har du to primære modtagere:
 
@@ -242,7 +238,7 @@ miljø-opsætninger.
 De specifikke afhængigheders versioner beskrives i en konfigurationsfil, der
 konventionelt hedder ``environment.yml`` for den brugervendte installation af
 pakken og ``environment-dev.yml`` for udviklingsmiljøet. Sidstnævnte inkluderer
-typisk ekstra værktjer, som kun er relevante for udviklere.
+typisk ekstra værktøjer, som kun er relevante for udviklere.
 
 Fordelen er altså, at man for både brugere og udviklere sikrer, at de til hver
 revision og version af pakken, kan installere opræcis de afhængigheder, der
@@ -307,7 +303,7 @@ samt test-værktøjet ``pytest``
 
     (package-dev)>
 
-, som vi kommer tilbage til nedenfor.
+som vi kommer tilbage til nedenfor.
 
 
 .. warning:: Eksempel på ikke-anbefalet praksis
@@ -396,7 +392,7 @@ og pakkens versioner.
 Python-konfigurationsfiler
 --------------------------
 
-En ren Python-pakke bliver idag defineret med følgende opsætning:
+En ren Python-pakke bliver i dag defineret med følgende opsætning:
 
 
 .. code-block:: none
@@ -410,7 +406,7 @@ En ren Python-pakke bliver idag defineret med følgende opsætning:
             ├── module2.py
             └── __init__.py
 
-Det er normal konvention at kalde rodmappen det samme som pakken-mappen inde i
+Det er normal konvention at kalde rodmappen det samme som pakke-mappen inde i
 ``src``-mappen. ``src``-opsætningen er efterhånden ved at blive alment kendt,
 og strukturen er blandt andet valgt, fordi det tvinger én til at installere
 pakken lokalt, når man skal teste koden.
@@ -427,7 +423,7 @@ De to filer i projekt-mappen:
 *   ``setup.cfg``
 
 udgør vores pakke-opsætning. ``pyproject.toml`` [`læs mere om TOML
-<https://toml.io/>`] fortæller, at vi har med et Python-projekt at gøre, mens
+<https://toml.io/>`_] fortæller, at vi har med et Python-projekt at gøre, mens
 ``setup.cfg`` indeholder konfiguration til standard-pakke-værktøjet
 `SetupTools`_. Med de nyere versioner af SetupTools er man gået væk fra at
 bruge en ``setup.py``-fil til kun at bruge en konfigurationsfil. ``setup.py``
@@ -570,7 +566,7 @@ opsætning i vores eksempel ser således ud:
 
 *   ``LICENSE`` er dokumentation af pakkens rette, juridiske brug.
 
-*   ``README``-filen, her i Markdown-format, er dén fil, man br læse først, når
+*   ``README``-filen, her i Markdown-format, er dén fil, man bør læse først, når
     man tilgår projektet. På GitHub er den fremhævet som hoveddokumentationen i
     arkivets rod [1]_. Derfor bør den indeholde de vigtigste oplysninger, der
     gør læseren istand til at forstå, hvad projektet går ud på, og hvordan man
