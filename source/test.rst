@@ -56,13 +56,18 @@ formater.
 Grundlæggende eksempler med ``pytest``
 --------------------------------------
 
-Nedenstående er et eksempel på, hvordan man bygger test-funktionalitet op med pytest.
+Nedenstående er et eksempel på, hvordan man bygger test-funktionalitet op med
+pytest.
 
-Koden illustrerer også, hvordan man kan bruge Arrange, Act og Assert-paradigmet i forhold til opsætning af test-koden.
+Koden illustrerer også, hvordan man kan bruge Arrange, Act og Assert-paradigmet
+i forhold til opsætning af test-koden.
 
-Test-funktioner skal være stjerneklare, så man meget nemt kan se, hvad de tester (her hjælper lange funktionsnavne).
+Test-funktioner skal være stjerneklare, så man meget nemt kan se, hvad de
+tester (her hjælper lange funktionsnavne).
 
-Læseren af testen lærer samtidig, hvordan éns API skal bruges, jævnfør ovenstående idé med at lade test-funktioner være på lige fod med anden funktionalitet i koden, de tester.
+Læseren af testen lærer samtidig, hvordan éns API skal bruges, jævnfør
+ovenstående idé med at lade test-funktioner være på lige fod med anden
+funktionalitet i koden, de tester.
 
 .. code-block:: python
 
@@ -70,8 +75,7 @@ Læseren af testen lærer samtidig, hvordan éns API skal bruges, jævnfør oven
 
     from brahmath.geometry import (
         semi_perimeter,
-        brahmagupta,
-    )
+     )
 
 
     def test_semi_perimeter():
@@ -96,10 +100,15 @@ Læseren af testen lærer samtidig, hvordan éns API skal bruges, jævnfør oven
             assert math.isclose(result, expected), \
                 default_assertionerror_message(result, expected)
 
-I eksemplet ovenfor er vist, hvordan pytest udnytter Pythons indbyggede ``assert``-statement som primære tilgang til at udtrykke, hvad man forventer.
+I eksemplet ovenfor er vist, hvordan pytest udnytter Pythons indbyggede
+``assert``-statement som primære tilgang til at udtrykke, hvad man forventer.
 
-Alle Python-moduler og -funktioner på konfigurations-stien til test-funktionaliteten bliver af pytest betragtet som test-funktionalitet. Der er altså ikek behov for, at man som udgangspunkt importerer test-rammeværkets moduler.
+Alle Python-moduler og -funktioner på konfigurations-stien til
+test-funktionaliteten bliver af pytest betragtet som test-funktionalitet. Der
+er altså ikke behov for, at man som udgangspunkt importerer test-rammeværkets
+moduler.
 
-Men mere avancerede muligheder eksisterer dog, hvilket kan ses på `Pytest`_-dokumentationen.
+Men mere avancerede muligheder eksisterer dog, hvilket kan ses på
+`Pytest`_-dokumentationen.
 
 .. _`Pytest`: https://docs.pytest.org/
