@@ -34,7 +34,7 @@ som at bygge, teste, debug'e, analysere og dokumentere kode med værktøjer
 IDE'er som VSCode har indbygget mulighed for at tilføje udvidelser [extensions i
 VSCode], der er specielt udviklet til IDE'en. Nogle udvidelser kan dog afhænge
 af, at du selv installerer nogle pakker ved siden af. En oplagt udvidelse at
-installere fra `Market Place`_ er `Python`_.
+installere fra `Market Place`_ er `Python`_, som blandt andet tilføjer linting.
 
 .. _`Market Place`: https://marketplace.visualstudio.com/
 .. _`Python`: https://marketplace.visualstudio.com/items?itemName=ms-python.python
@@ -63,7 +63,7 @@ efterfølgende nemt at skifte til dén fortolker, man ønsker at bruge i sin
 udvikling ved enten at bruge VSCode's `Command Palette`_
 [``Ctrl`` + ``Shift`` + ``p``] vælger "Python: Select Interpreter".
 
-.. figure:: images/tools/vscode_button-to-open-python-interpreter-selction-menu.*
+.. figure:: images/tools/vscode_button-to-open-python-interpreter-selection-menu.*
     :align: center
 
     *Nederst til højre i VSCode kan man trykke på knappen "Python", for at åbne
