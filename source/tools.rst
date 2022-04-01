@@ -29,7 +29,8 @@ redigere kildekode og helt eller delvist automatisk udføre rutine-opgaver så
 som at bygge, teste, debug'e, analysere og dokumentere kode med værktøjer
 (ofte plugins), som er integrerede i tekstredigeringsværktøjet.
 
-**Microsoft Visual Studio Code [VSCode]**
+Microsoft Visual Studio Code [VSCode]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 IDE'er som VSCode har indbygget mulighed for at tilføje udvidelser [extensions i
 VSCode], der er specielt udviklet til IDE'en. Nogle udvidelser kan dog afhænge
@@ -72,9 +73,15 @@ udvikling ved enten at bruge VSCode's `Command Palette`_
 .. _`Command Palette`: https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette
 .. _`VSCode brugergrænseflade`: https://code.visualstudio.com/docs/getstarted/userinterface
 
-*Terminalen*
+Terminalen
+~~~~~~~~~~
 
-Tilgængelige terminaler såsom POwer Shell og Command Prompt er integreret i VSCode og kan åbnes som et separat panel i brugergrænsefladen. Arbejder man fra terminalen og vil gerne åbne et dokument med en kommando i VSCode, skal terminalen have installeret kommandolinjeværktøjet ``code``. Kommandoen kan installeres ved fra VSCode's Command Palette at vælge "install 'code' command in path".
+Tilgængelige terminaler såsom POwer Shell og Command Prompt er integreret i
+VSCode og kan åbnes som et separat panel i brugergrænsefladen. Arbejder man fra
+terminalen og vil gerne åbne et dokument med en kommando i VSCode, skal
+terminalen have installeret kommandolinjeværktøjet ``code``. Kommandoen kan
+installeres ved fra VSCode's Command Palette at vælge "install 'code' command
+in path".
 
 
 Automatisk kodeformatering
@@ -104,7 +111,8 @@ Det smarte ved værktøjet er, at man ikke behøver at bekymre sig om, hvordan m
 selv skriver koden, da ``black`` retter al kode til. Derfor kan man bruge tiden
 på at tænke over indholdet og mindre over, hvordan koden skal se ud.
 
-*Tilpasninger*
+Tilpasninger
+~~~~~~~~~~~~
 
 Black kan tilpasses i ``pyproject.toml``, hvis man eksempelvis ønsker at undlade
 at omformatere visse filer.

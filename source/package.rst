@@ -65,7 +65,8 @@ Python-organisationens synsvinkel, herunder standard-værktøjs-udviklere
 (SetupTools, PIP), open-source-organisationer som folkene bag MambaForge, samt
 styrelsens og vores egne personlige erfaringer.
 
-*Synsvinkel*
+Synsvinkel
+~~~~~~~~~~
 
 Som nævnt er synsvinklen valgt, så beskrivelsen af bedste praksis har fokus på
 den gradvise overgang fra start til slutprodukt. Vi ser altså på fremgangsmåder
@@ -73,31 +74,6 @@ og processer, vi som udviklere gennemgår, inden vi kommer frem til
 slutprodukterne. Med et proces-perspektiv giver vi også plads til at nævne mere
 generelle overvejelser og metoder, da de hænger naturligt sammen med mere
 Python-specifikke arbejdsgange.
-
-
-Underspørgsmål/processer/indhold
---------------------------------
-
-*   Mappestruktur: Hvordan skal jeg organisere projektets filer og data i mapper
-    under projektet?
-
-*   Hvad er den minimale konfiguration, der skal til for at starte et nyt
-    Python-projekt?
-
-*   Hvordan skal pakken installeres?
-
-    *   Fra udviklerens synspunkt
-    *   Fra brugerens synspunkt
-    *   Reproducérbare installationer med miljø-konfigurationer.
-
-*   Hvordan sætter jeg test-funktionalitet op?
-
-*   Hvordan organiserer jeg dokumentation i koden og vejledninger?
-
-*   Hvordan gør jeg koden mere læsbar?
-
-    *   Kildekode: *typing annotations* i Python
-    *   Test-kode: tydelige, forståelige, beskrivende funktionsnavne
 
 
 Fremgangsmåde/checkliste
@@ -124,8 +100,6 @@ Fremgangsmåde/checkliste
 
         *   Bemærk, at der efter ``setuptools>=43.0.0`` ikke er behov for en
             ``setup.py``-fil.
-
-
 
 
 Mappestruktur og konfigurationer
@@ -223,9 +197,9 @@ kildekode, test-funktionalitet, dokumentation og andre slutprodukter.
 Brugerens synsvinkel: installation og dokumentation
 ---------------------------------------------------
 
-| Som bruger
-| skal jeg kunne installere og bruge pakken
-| så jeg kan udføre mine egne arbejdsopgaver mere effektivt.
+    | *Som bruger*
+    | *skal jeg kunne installere og bruge pakken*
+    | *så jeg kan udføre mine egne arbejdsopgaver mere effektivt.*
 
 For brugeren er kun produktet og den brugervendte dokumentation relevant.
 
@@ -243,76 +217,6 @@ Der kan være flere grunde til, at vi ikke distribuerer koden til et
 (globalt) Python-pakke-arkiv. Én årsag kan være, at vi kan have brug for, at
 brugeren tester en specifik version af koden, hvilket er nemt, hvis brugeren
 bare skal checke den givne version ud kortvarigt.
-
-
-
-Opsæt versionsstyring
----------------------
-
-Vi går ikke her ind i detaljerne med at oprette et nyt Git-arkiv til pakken, men
-skitserer i det følgende skridt til at oprette og arbejde med Git og GitHub.
-
-**Start et nyt arkiv**
-
-*   Opret et nyt Git-arkiv på Github, som skal fungere som den officielle
-    placering af din python-pakke.
-
-    *   Sig ja til at oprette README, LICENSE og ikke mindst en standard
-        ``.gitignore``-fil til Python.
-
-*   I GitHub, opret en *fork* af det nye Git-arkiv til din egen GitHub-bruger.
-
-*   Kopiér SSH-adressen til din fork'ede version af arkivet.
-
-*   I dit udviklingsmiljø [eksempelvis din SIT-PC eller], klon din fork med
-    SSH-adressen, så du kan arbejde lokalt med ændringerne.
-
-
-**Ændringer**
-
-Når du laver ændringer, kan processen være som følger:
-
-*Lokalt*
-
-*   Opret en ny branch til dine ændringer.
-*   Check den nye branch ud og lav dine ændringer.
-*   Skub ændringerne til din fork.
-
-*På Github*
-
-*   Opret et Pull-request til det centrale arkiv.
-*   Hvis ændringerne kan accepteres, så lav et merge af ændringerne til det
-    centrale arkiv.
-
-
-**Første ændringer**
-
-Begynd med at tilpasse README-filen, som GitHub automatisk oprettede for dig.
-Den bliver dit mest læste dokument og vises automatisk, når man tilgår arkivet
-på GitHub. Forklar som minimum læseren:
-
-*   hvad projektet går ud på, hvem projektet er til for, og hvordan det skaber
-    værdi (eksistensgrundlag),
-*   hvordan man kommer igang med at bruge pakken,
-*   hvordan man kan bidrage til projektet,
-*   hvordan projektet vedligeholdes,
-
-
-**Konklusion**
-
-Efter disse første skridt, har vi følgende i rod.mappen af arkievet:
-
-.. code-block:: none
-
-    package
-    ├── .git
-    ├── .gitignore
-    ├── LICENSE
-    └── README.md
-
-
-.. note :: I det følgende, bliver alle ændringer foretaget lokalt, med mindre
-   andet er angivet.
 
 
 Reproducérbar Python-miljø-opsætning
@@ -344,7 +248,9 @@ Fordelen er altså, at man for både brugere og udviklere sikrer, at de til hver
 revision og version af pakken, kan installere opræcis de afhængigheder, der
 skal til for at den pågældende version af pakken virker.
 
-**Udviklingsmiljø**
+
+Udviklingsmiljø
+~~~~~~~~~~~~~~~
 
 Begynd med at oprette konfigurationsfilen ``environment-dev.yml`` med
 beskrivelsen dine afhængigheder som udvikler.
@@ -377,8 +283,6 @@ Og miljøet kan herefter aktiveres med:
     (base)> mamba activate package-dev
     (package-dev)>
 
-
-**Resultat**
 
 Vi har nu adgang til Python 3.10
 
@@ -435,7 +339,8 @@ samt test-værktøjet ``pytest``
             (package-dev)> mamba env export -f environment-dev.yml
 
 
-**Miljø-opsætning til brugerinstallation**
+Miljø-opsætning til brugerinstallation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For brugeren, der kun skal installere pakken og dennes afhængigheder, opretter
 man nemt et tilsvarende miljø, men uden de for udvikleren relevante
@@ -475,7 +380,8 @@ Og miljøet kan herefter aktiveres med:
     nødvendigvis være unikke.
 
 
-**Konklusion**
+Konklusion
+~~~~~~~~~~
 
 Vi har nu en miljø-opsætning til os selv og andre udviklere, som definerer de
 fælles værktøjer, der er relevante under udviklingen af pakken.
@@ -595,9 +501,10 @@ Læs mere om de enkelte konfigurationsmuligheder i dokumentationen for
 Test-funktionalitet
 -------------------
 
-Denne vejledning har et separat kapitel om implementation af test-funktionalitet
-og anden kvalitetssikring i Python. Her nævner vi kort, at al
-test-funktionalitet bør ligge separat i sin egen mappe kaldet ``tests/``.
+Denne vejledning har :ref:`et separat kapitel om implementation af
+test-funktionalitet og anden kvalitetssikring <tests>` i Python. Her
+nævner vi kort, at al test-funktionalitet bør ligge separat i sin egen mappe
+kaldet ``tests/``.
 
 De relevante konfigurations-filer og mapper med test-funktionaliteten ser
 således ud:
