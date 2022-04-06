@@ -10,7 +10,11 @@ Software Foundation`_ og i stedet bruge en tredjeparts distribution som fx
 arbejde med mange forskellige isolerede udviklingsmiljøer. Grundet forskellige
 licensforhold er Anaconda ikke egnet til brug i SDFE, hvorfor vi i stedet
 anbefaler at bruge `Mamba`_, der er et frit og åbent alternativ til Anaconda.
+MambaForge er som udgangspunkt sat op til kun at hente pakker fra kanalen
+``conda-forge``, som er en organisation af stabile og opdaterede versioner af en
+lang række pakker til en bred modtagergruppe. (Læs mere her: `Why conda-forge?`_.)
 
+.. Pakkestyringsværktøjet `mamba` er hurtigere til at opløse afhængigheder end `conda`, der følger med Anaconda-distributionen.
 
 Herunder beskrives installationen af Mamba og de vigtigste funktioner i Mamba
 demonstreres.
@@ -32,7 +36,7 @@ Hurtigruten
 ------------
 
 * Download `Mamba installationsprogrammet`_
-* Kør installeren og klik dig gennem de enkelte skridt, vælg undervejs at
+* Kør installationsprogrammet og klik dig gennem de enkelte skridt, vælg undervejs at
     * Installere "just for me"
     * Placere filerne under ``C:\Users\<brugernavn>\AppData\Local\mambaforge``
     * "Register Mambaforge as my default Python"
@@ -62,7 +66,7 @@ hvilket er uproblematisk for os som brugere.
 
     *Licensforhold*
 
-Vælg installtionstype. Ved at vælge "Just for me" her, installerer
+Vælg installationstype. Ved at vælge "Just for me" her, installerer
 vi programmet under den aktuelle bruger og undgår derved at skulle
 taste en administratoradgangskode
 
@@ -289,4 +293,5 @@ Bemærk at der nu står ``sdfepython`` i parantesen før stien.
 .. _`Anaconda`: https://www.anaconda.com/
 .. _`Mamba`: https://mamba.readthedocs.io/en/latest/
 .. _`Mambas officielle dokumentation`: https://mamba.readthedocs.io/en/latest/installation.html
+.. _`Why conda-forge?`: https://conda-forge.org/docs/user/introduction.html#why-conda-forge
 .. _`Mamba installationsprogrammet`: https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe
