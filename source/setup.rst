@@ -309,7 +309,9 @@ Bemærk at der nu står ``sdfipython`` i parantesen før stien.
 Integration med shell-terminal og integreret udviklingsmiljø
 ------------------------------------------------------------
 
-For at have ``mamba`` tilgængelig for alle terminaler---og ikke bare MambaForge-terminalen---og ikke mindst dit :ref:`integrerede udviklingsmiljø <værktøjer>` skal disse værktøjer kende stien til MamabaForge-installationen.
+For at have ``mamba`` tilgængelig for alle terminaler---og ikke bare
+MambaForge-terminalen---og ikke mindst dit :ref:`integrerede udviklingsmiljø
+<værktøjer>` skal disse værktøjer kende stien til MamabaForge-installationen.
 
 Åbn kontrolpanel-funktionen "Rediger miljøvariabler for din konto" fra Windows-startemuen:
 
@@ -342,7 +344,10 @@ Tilføj følgende stier til variablen:
     *Tilføjede stier til %PATH%, som er nødvendige for, at shell og IDE kender stien til ``mamba``.*
 
 
-**Med disse stier sat kan du nu aktivere miljøer i en ny terminal, eksempelvis cmd.exe, og en IDE som Visual Studio Code kan sende aktiveringskommandoen for et givet miljø i de nye terminal-vinduer, du åbner igennem programmet (PowerShell, CMD, Git Bash, etc.).**
+**Med disse stier sat kan du nu aktivere miljøer i en ny terminal, eksempelvis
+  cmd.exe, og en IDE som Visual Studio Code kan sende aktiveringskommandoen for
+  et givet miljø i de nye terminal-vinduer, du åbner igennem programmet
+  (PowerShell, CMD, Git Bash, etc.).**
 
 .. _`The Python Software Foundation`: https://www.python.org/psf/
 .. _`Anaconda`: https://www.anaconda.com/
