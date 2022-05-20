@@ -35,12 +35,28 @@ er også at finde herunder i afsnittet :ref:`fuld_vejledning`.
 Hurtigruten
 ------------
 
-* Download `Mamba installationsprogrammet`_
-* Kør installationsprogrammet og klik dig gennem de enkelte skridt, vælg undervejs at
-    * Installere "just for me"
-    * Placere filerne under ``C:\Users\<brugernavn>\AppData\Local\mambaforge``
-    * "Register Mambaforge as my default Python"
-    * "Clear the package cache upon completion"
+*   Download `Mamba installationsprogrammet`_
+*   Kør installationsprogrammet og gennemgå de enkelte skridt med følgende
+    valgmuligheder:
+
+    *   Installér "just for me"
+    *   Placere filerne under ``C:\Users\<brugernavn>\AppData\Local\mambaforge``
+    *   "Register Mambaforge as my default Python"
+    *   "Clear the package cache upon completion"
+
+*   Tilføj dernæst følgende stier til din lokal ``PATH`` miljø-variabel, så du i
+    en shell-terminal og i dit integrerede udviklingsmiljø kan bruge kommandoen
+    ``mamba`` uden at angive den komplette sti til programmet:
+
+    .. code-block:: none
+
+        %LocalAppData%\mambaforge
+        %LocalAppData%\mambaforge\Library\bin
+        %LocalAppData%\mambaforge\Scripts
+
+    hvor `%LocalAppData%
+    <https://www.advancedinstaller.com/appdata-localappdata-programdata.html>`__
+    henviser til mappen ``C:\Users\<username>\AppData\Local``
 
 
 .. _fuld_vejledning:
@@ -288,6 +304,45 @@ Herefter kan vi aktivere det nye miljø
 Bemærk at der nu står ``sdfipython`` i parantesen før stien.
 
 
+.. _integration_med_shell_terminal_og_integreret_udviklingsmiljoe:
+
+Integration med shell-terminal og integreret udviklingsmiljø
+------------------------------------------------------------
+
+For at have ``mamba`` tilgængelig for alle terminaler---og ikke bare MambaForge-terminalen---og ikke mindst dit :ref:`integrerede udviklingsmiljø <værktøjer>` skal disse værktøjer kende stien til MamabaForge-installationen.
+
+Åbn kontrolpanel-funktionen "Rediger miljøvariabler for din konto" fra Windows-startemuen:
+
+.. figure:: ./images/env-run-search-user-env.png
+    :align: center
+    :alt:   Fremsøg dialog-vindue til at ændre miljø-variable for brugerkontoen.
+
+    *Fremsøg dialog-vindue til at ændre miljø-variable for brugerkontoen.*
+
+Vælg redigér **Path** [sic]:
+
+.. figure:: ./images/env-user-env-vars.png
+    :align: center
+    :alt:   Oversigt over miljø-variable for brugeren og på tværs af brugere [systemvariable].
+
+    *Oversigt over miljø-variable for brugeren og på tværs af brugere [systemvariable].*
+
+Tilføj følgende stier til variablen:
+
+    .. code-block:: none
+
+        %LocalAppData%\mambaforge
+        %LocalAppData%\mambaforge\Library\bin
+        %LocalAppData%\mambaforge\Scripts
+
+.. figure:: ./images/env-user-env-var-path-edit.png
+    :align: center
+    :alt:   Tilføjede stier til %PATH%, som er nødvendige for, at shell og IDE kender stien til ``mamba``.
+
+    *Tilføjede stier til %PATH%, som er nødvendige for, at shell og IDE kender stien til ``mamba``.*
+
+
+**Med disse stier sat kan du nu aktivere miljøer i en ny terminal, eksempelvis cmd.exe, og en IDE som Visual Studio Code kan sende aktiveringskommandoen for et givet miljø i de nye terminal-vinduer, du åbner igennem programmet (PowerShell, CMD, Git Bash, etc.).**
 
 .. _`The Python Software Foundation`: https://www.python.org/psf/
 .. _`Anaconda`: https://www.anaconda.com/
