@@ -43,7 +43,7 @@ Det er desuden ikke formålet her at gå i dybden med Pythons metodologi,
 .. Dette kan komme med i en senere version af denne vejledning.
 
 **Det primære fokus her er de standarder, konventioner og værktøjskombinationer,
-der virker godt idag for os i SDFE.**
+der virker godt idag for os i SDFI.**
 
 
 Informationskilder
@@ -459,7 +459,7 @@ pakke-metadata i ``setup.cfg``.
     long_description_content_type = text/markdown; charset=UTF-8
     url = https://github.com/...
     author = Firstname Lastname
-    author_email = firstname.lastname@sdfe.dk
+    author_email = firstname.lastname@sdfi.dk
     license = MIT
     license_file = LICENSE
     project_urls =

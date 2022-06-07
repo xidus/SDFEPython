@@ -1,3 +1,3 @@
-# Python i SDFE
+# Python i SDFI
 
-Anbefalinger til brug af Python i SDFE.
+Anbefalinger til brug af Python i SDFI.

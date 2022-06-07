@@ -8,7 +8,7 @@ sig at være fordelagtigt at undgå den officielle distribution fra `The Python
 Software Foundation`_ og i stedet bruge en tredjeparts distribution som fx
 `Anaconda`_. Anaconda er et bredt anvendt rammeværk der gør det muligt at
 arbejde med mange forskellige isolerede udviklingsmiljøer. Grundet forskellige
-licensforhold er Anaconda ikke egnet til brug i SDFE, hvorfor vi i stedet
+licensforhold er Anaconda ikke egnet til brug i SDFI, hvorfor vi i stedet
 anbefaler at bruge `Mamba`_, der er et frit og åbent alternativ til Anaconda.
 MambaForge er som udgangspunkt sat op til kun at hente pakker fra kanalen
 ``conda-forge``, som er en organisation af stabile og opdaterede versioner af en
@@ -125,11 +125,11 @@ Når prompten åbnes mødes du af et terminalvindue med følgende indhold:
 hvilket indikerer at du arbejder i Mambas standardmiljø ``base``. Det anbefales
 aldrig at bruge dette og i stedet oprette dedikerede miljøer til hvert enkelt
 projekt der arbejdes på. Denne webside er eksempelvis skabt i et miljø der
-hedder ``sdfepython``, der er oprettet med kommandoen ``mamba create``:
+hedder ``sdfipython``, der er oprettet med kommandoen ``mamba create``:
 
 .. code-block:: none
 
-    (base) C:\>mamba create -n sdfepython python sphinx
+    (base) C:\>mamba create -n sdfipython python sphinx
 
                     __    __    __    __
                     /  \  /  \  /  \  /  \
@@ -166,7 +166,7 @@ hedder ``sdfepython``, der er oprettet med kommandoen ``mamba create``:
     pkgs/msys2/noarch        [====================] (00m:00s) No change
     Transaction
 
-    Prefix: C:\Users\b012349\AppData\Local\mambaforge\envs\sdfepython
+    Prefix: C:\Users\b012349\AppData\Local\mambaforge\envs\sdfipython
 
     Updating specs:
 
@@ -259,7 +259,7 @@ Tryk ``Y`` for at bekræfte oprettelse af det nye miljø
     #
     # To activate this environment, use
     #
-    #     $ conda activate sdfepython
+    #     $ conda activate sdfipython
     #
     # To deactivate an active environment, use
     #
@@ -281,11 +281,11 @@ Herefter kan vi aktivere det nye miljø
 
 .. code-block:: none
 
-    (base) C:\>mamba activate sdfepython
+    (base) C:\>mamba activate sdfipython
 
-    (sdfepython) C:\>
+    (sdfipython) C:\>
 
-Bemærk at der nu står ``sdfepython`` i parantesen før stien.
+Bemærk at der nu står ``sdfipython`` i parantesen før stien.
 
 
 
