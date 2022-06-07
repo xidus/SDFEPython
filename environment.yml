@@ -1,4 +1,4 @@
-name: sdfepython
+name: sdfipython
 channels:
   - conda-forge
 dependencies:

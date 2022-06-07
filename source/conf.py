@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'SDFE Python'
+project = 'SDFI Python'
 copyright = '2022, Styrelsen for Dataforsyning og Effektivisering / Geografiske Referencer'
 author = 'Styrelsen for Dataforsyning og Effektivisering / Geografiske Referencer'
 
@@ -61,4 +61,4 @@ html_theme = "press"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_logo = '_static/sdfelogo.png'
+html_logo = '_static/sdfilogo.jpg'

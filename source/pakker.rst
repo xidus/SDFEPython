@@ -4,7 +4,7 @@ Gode Pythonpakker
 =================
 
 I dette kapitel beskriver vi en række gode og anbefalelsesværdige Pythonpakker, der kan hjælpe med at
-løse gængse problemstillinger en udvikler i SDFE ofte vil støde på. I udvælgelsen af pakkerne
+løse gængse problemstillinger en udvikler i SDFI ofte vil støde på. I udvælgelsen af pakkerne
 herunder er der lagt vægt på særligt pythonske implementeringer, der benytter sig af koncepter
 introduceret i nyere udgaver af Python.
 
