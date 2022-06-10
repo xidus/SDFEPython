@@ -111,7 +111,9 @@ som det var i udgangspunktet:
 * Registrér Mambaforge som default Python installation
 * Ryd cache efter installation
 
-Miljøvariablen ``PATH`` kan rettes til senere, hvis det ikke er nødvendigt.
+Miljøvariablen ``PATH`` kan tilpasses senere, hvis det er nødvendigt
+at rette eller slette stierne. Se :ref:`nedenfor <setup_edit_path>`,
+hvordan dette gøres.
 
 .. figure:: ./images/mamba-install-05.png
     :align: center
@@ -120,59 +122,6 @@ Miljøvariablen ``PATH`` kan rettes til senere, hvis det ikke er nødvendigt.
     *Avancerede installationsvalg*
 
 Afvent at installationsprogrammet kører færdig.
-
-.. tip ::
-
-    **Håndtering af MambaForge-stier i din lokale PATH-miljøvariabel**
-
-    Med installationsvalgene ovenfor får din lokale ``PATH``-miljøvariabel
-    føjet følgende stier til foran de eksisterende stier:
-
-        .. code-block:: none
-
-            %LocalAppData%\mambaforge
-            %LocalAppData%\mambaforge\Library\mingw-w64\bin
-            %LocalAppData%\mambaforge\Library\usr\bin
-            %LocalAppData%\mambaforge\Library\bin
-            %LocalAppData%\mambaforge\Scripts
-
-    Med disse stier sat kan du nu aktivere miljøer i en ny terminal,
-    eksempelvis ``cmd.exe``, og en IDE som Visual Studio Code kan sende
-    aktiveringskommandoen for et givet miljø i de nye terminal-vinduer,
-    du åbner igennem programmet (PowerShell, CMD, Git Bash, CMDer, etc.).
-
-    Fordelen ved dette er altså, at ``mamba`` og andre programmer, der ligger
-    på disse placeringer, nu er tilgængelige for alle terminaler, herunder
-    også dén terminal, du bruger i dit :ref:`integrerede udviklingsmiljø <værktøjer>`.
-
-    Ønsker du at rette eller fjerne disse stier igen, kan du tilgå dine
-    miljøvariable på følgende måde:
-
-    *   Åbn kontrolpanel-funktionen "Rediger miljøvariabler for din konto"
-        fra Windows-startmenu:
-
-        .. figure:: ./images/env-run-search-user-env.png
-            :align: center
-            :alt:   Fremsøg dialog-vindue til at ændre miljø-variable for brugerkontoen.
-
-            *Fremsøg dialog-vindue til at ændre miljø-variable for brugerkontoen.*
-
-    *   Vælg redigér **Path** [sic]:
-
-        .. figure:: ./images/env-user-env-vars.png
-            :align: center
-            :alt:   Oversigt over miljø-variable for brugeren og på tværs af brugere [systemvariable].
-
-            *Oversigt over miljø-variable for brugeren og på tværs af brugere [systemvariable].*
-
-    *   Se, ret eller fjern de stier, du ønsker:
-
-        .. figure:: ./images/env-user-env-var-path-edit.png
-            :align: center
-            :alt:   Tilføjede stier til PATH, som er nødvendige for, at shell og IDE kender stien til mamba.
-
-            *Tilføjede stier til PATH, som er nødvendige for, at shell og IDE kender stien til mamba.*
-
 
 
 Demonstration
@@ -358,6 +307,61 @@ Herefter kan vi aktivere det nye miljø
     (sdfipython) C:\>
 
 Bemærk at der nu står ``sdfipython`` i parantesen før stien.
+
+
+.. _setup_edit_path:
+
+Håndtering af MambaForge-stier i din lokale PATH-miljøvariabel
+--------------------------------------------------------------
+
+Med installationsvalgene ovenfor får din lokale ``PATH``-miljøvariabel
+føjet følgende stier til foran de eksisterende stier:
+
+    .. code-block:: none
+
+        %LocalAppData%\mambaforge
+        %LocalAppData%\mambaforge\Library\mingw-w64\bin
+        %LocalAppData%\mambaforge\Library\usr\bin
+        %LocalAppData%\mambaforge\Library\bin
+        %LocalAppData%\mambaforge\Scripts
+
+Med disse stier sat kan du nu aktivere miljøer i en ny terminal,
+eksempelvis ``cmd.exe``, og en IDE som Visual Studio Code kan sende
+aktiveringskommandoen for et givet miljø i de nye terminal-vinduer,
+du åbner igennem programmet (PowerShell, CMD, Git Bash, CMDer, etc.).
+
+Fordelen ved dette er altså, at ``mamba`` og andre programmer, der ligger
+på disse placeringer, nu er tilgængelige for alle terminaler, herunder
+også dén terminal, du bruger i dit :ref:`integrerede udviklingsmiljø <værktøjer>`.
+
+Ønsker du at rette eller fjerne disse stier igen, kan du tilgå dine
+miljøvariable på følgende måde:
+
+*   Åbn kontrolpanel-funktionen "Rediger miljøvariabler for din konto"
+    fra Windows-startmenu:
+
+    .. figure:: ./images/env-run-search-user-env.png
+        :align: center
+        :alt:   Fremsøg dialog-vindue til at ændre miljø-variable for brugerkontoen.
+
+        *Fremsøg dialog-vindue til at ændre miljø-variable for brugerkontoen.*
+
+*   Vælg redigér **Path** [sic]:
+
+    .. figure:: ./images/env-user-env-vars.png
+        :align: center
+        :alt:   Oversigt over miljø-variable for brugeren og på tværs af brugere [systemvariable].
+
+        *Oversigt over miljø-variable for brugeren og på tværs af brugere [systemvariable].*
+
+*   Se, ret eller fjern de stier, du ønsker:
+
+    .. figure:: ./images/env-user-env-var-path-edit.png
+        :align: center
+        :alt:   Tilføjede stier til PATH, som er nødvendige for, at shell og IDE kender stien til mamba.
+
+        *Tilføjede stier til PATH, som er nødvendige for, at shell og IDE kender stien til mamba.*
+
 
 
 .. _`The Python Software Foundation`: https://www.python.org/psf/
