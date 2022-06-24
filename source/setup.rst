@@ -35,12 +35,19 @@ er også at finde herunder i afsnittet :ref:`fuld_vejledning`.
 Hurtigruten
 ------------
 
-* Download `Mamba installationsprogrammet`_
-* Kør installationsprogrammet og klik dig gennem de enkelte skridt, vælg undervejs at
-    * Installere "just for me"
-    * Placere filerne under ``C:\Users\<brugernavn>\AppData\Local\mambaforge``
-    * "Register Mambaforge as my default Python"
-    * "Clear the package cache upon completion"
+*   Download `Mamba installationsprogrammet`_
+*   Kør installationsprogrammet og gennemgå de enkelte skridt med følgende
+    valgmuligheder:
+
+    *   Installér "just for me"
+    *   Placere filerne under ``C:\Users\<brugernavn>\AppData\Local\mambaforge``
+    *   "Register Mambaforge as my default Python"
+    *   Tilvælg "Add MambaForge to my PATH environment variable"
+    *   "Clear the package cache upon completion"
+
+Når du har tilføj dernæst følgende stier til din lokal ``PATH`` miljø-variabel,
+kan du i en shell-terminal og i dit integrerede udviklingsmiljø kan bruge
+kommandoen ``mamba`` uden at angive den komplette sti til programmet:
 
 
 .. _fuld_vejledning:
@@ -86,14 +93,18 @@ standardiseret placering som bør følges. Tryk næste.
     *Installationsplacering*
 
 Sidste skridt i installationen er at tage stilling til avancerede
-indstillinger. Vi følger de anbefalede valgmuligheder:
+indstillinger. Vi følger de anbefalede valgmuligheder bortset fra,
+at vi gerne vil kunne tilgå `mamba` fra enhver terminal, herunder
+også i en IDE som VS Code. Sæt derfor følgende og lad resten være
+som det var i udgangspunktet:
 
+* Tilføj MambaForge-stier til din brugers lokale ``PATH``-miljøvariabel
 * Registrér Mambaforge som default Python installation
 * Ryd cache efter installation
 
-Førstnævnte er det bedste valg for de fleste. Hvis det **ikke** er det bedste
-valg for dig ved du det godt og kan med fordel vælge anderledes. Alle andre bør
-følge anbefalingen her.
+Miljøvariablen ``PATH`` kan tilpasses senere, hvis det er nødvendigt
+at rette eller slette stierne. Se :ref:`nedenfor <setup_edit_path>`,
+hvordan dette gøres.
 
 .. figure:: ./images/mamba-install-05.png
     :align: center
@@ -102,6 +113,7 @@ følge anbefalingen her.
     *Avancerede installationsvalg*
 
 Afvent at installationsprogrammet kører færdig.
+
 
 Demonstration
 --------------
@@ -286,6 +298,60 @@ Herefter kan vi aktivere det nye miljø
     (sdfipython) C:\>
 
 Bemærk at der nu står ``sdfipython`` i parantesen før stien.
+
+
+.. _setup_edit_path:
+
+Håndtering af MambaForge-stier i din lokale PATH-miljøvariabel
+--------------------------------------------------------------
+
+Med installationsvalgene ovenfor får din lokale ``PATH``-miljøvariabel
+føjet følgende stier til foran de eksisterende stier:
+
+    .. code-block:: none
+
+        %LocalAppData%\mambaforge
+        %LocalAppData%\mambaforge\Library\mingw-w64\bin
+        %LocalAppData%\mambaforge\Library\usr\bin
+        %LocalAppData%\mambaforge\Library\bin
+        %LocalAppData%\mambaforge\Scripts
+
+Med disse stier sat kan du nu aktivere miljøer i en ny terminal,
+eksempelvis ``cmd.exe``, og en IDE som Visual Studio Code kan sende
+aktiveringskommandoen for et givet miljø i de nye terminal-vinduer,
+du åbner igennem programmet (PowerShell, CMD, Git Bash, CMDer, etc.).
+
+Fordelen ved dette er altså, at ``mamba`` og andre programmer, der ligger
+på disse placeringer, nu er tilgængelige for alle terminaler, herunder
+også dén terminal, du bruger i dit :ref:`integrerede udviklingsmiljø <værktøjer>`.
+
+Ønsker du at rette eller fjerne disse stier igen, kan du tilgå dine
+miljøvariable på følgende måde:
+
+*   Åbn kontrolpanel-funktionen "Rediger miljøvariabler for din konto"
+    fra Windows-startmenu:
+
+    .. figure:: ./images/env-run-search-user-env.png
+        :align: center
+        :alt:   Fremsøg dialog-vindue til at ændre miljø-variable for brugerkontoen.
+
+        *Fremsøg dialog-vindue til at ændre miljø-variable for brugerkontoen.*
+
+*   Vælg redigér **Path** [sic]:
+
+    .. figure:: ./images/env-user-env-vars.png
+        :align: center
+        :alt:   Oversigt over miljø-variable for brugeren og på tværs af brugere [systemvariable].
+
+        *Oversigt over miljø-variable for brugeren og på tværs af brugere [systemvariable].*
+
+*   Se, ret eller fjern de stier, du ønsker:
+
+    .. figure:: ./images/env-user-env-var-path-edit.png
+        :align: center
+        :alt:   Tilføjede stier til PATH, som er nødvendige for, at shell og IDE kender stien til mamba.
+
+        *Tilføjede stier til PATH, som er nødvendige for, at shell og IDE kender stien til mamba.*
 
 
 
