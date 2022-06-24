@@ -14,12 +14,13 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import datetime as dt
 
 # -- Project information -----------------------------------------------------
 
 project = 'SDFI Python'
-copyright = '2022, Styrelsen for Dataforsyning og Effektivisering / Geografiske Referencer'
-author = 'Styrelsen for Dataforsyning og Effektivisering / Geografiske Referencer'
+author = 'Styrelsen for Dataforsyning og Infrastruktur / Geografiske Referencer'
+copyright = f'{dt.date.today().year}, {author}'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1'
