@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html  lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>Pakke-opbygning</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Indeks" href="genindex.html" />
+  <link rel="search" title="Søg" href="search.html" />
+  <link rel="next" title="Test din kode" href="test.html" />
+  <link rel="prev" title="Udviklingsværktøjer" href="tools.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <img class="logo" src="_static/sdfilogo.jpg" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Hurtig søgning</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Søg" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#python-i-sdfi">Indhold:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="setup.html" class="reference internal ">Anbefalet opsætning</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tools.html" class="reference internal ">Udviklingsværktøjer</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Pakke-opbygning</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#afgraensning" class="reference internal">Afgrænsning</a></li>
+                
+                  <li class="toctree-l2"><a href="#informationskilder" class="reference internal">Informationskilder</a></li>
+                
+                  <li class="toctree-l2"><a href="#udviklerens-synsvinkel" class="reference internal">Udviklerens synsvinkel</a></li>
+                
+                  <li class="toctree-l2"><a href="#brugerens-synsvinkel-installation-og-dokumentation" class="reference internal">Brugerens synsvinkel: installation og dokumentation</a></li>
+                
+                  <li class="toctree-l2"><a href="#reproducerbar-python-miljo-opsaetning" class="reference internal">Reproducérbar Python-miljø-opsætning</a></li>
+                
+                  <li class="toctree-l2"><a href="#python-konfigurationsfiler" class="reference internal">Python-konfigurationsfiler</a></li>
+                
+                  <li class="toctree-l2"><a href="#test-funktionalitet" class="reference internal">Test-funktionalitet</a></li>
+                
+                  <li class="toctree-l2"><a href="#dokumentation" class="reference internal">Dokumentation</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="test.html" class="reference internal ">Test din kode</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pakker.html" class="reference internal ">Gode Pythonpakker</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="referencer.html" class="reference internal ">Referencer</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Pakke-opbygning</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="tools.html"
+       title="forrige kapitel">← Udviklingsværktøjer</a>
+  </li>
+  <li class="next">
+    <a href="test.html"
+       title="næste kapitel">Test din kode →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="pakke-opbygning">
+<h1>Pakke-opbygning<a class="headerlink" href="#pakke-opbygning" title="Permalink til denne overskrift">¶</a></h1>
+<p>Følgende beskriver, hvordan man får en god start på et nyt Python-projekt. Det
+centrale spørgsmål er <strong>Hvordan er vejen til at opbygge og vedligeholde en
+velorganiseret Python-pakke?</strong>. Teksten går også gradvist frem således,
+at pakkens komponenter og hjælpemidler bliver beskrevet i en rækkefølge, som er
+hensigtsmæssig, når man bygger en pakke op fra bunden.</p>
+<section id="afgraensning">
+<h2>Afgrænsning<a class="headerlink" href="#afgraensning" title="Permalink til denne overskrift">¶</a></h2>
+<p>Konkret forsøger vi her at beskrive den nuværende, bedste praksis for
+programmeringssproget Python.</p>
+<p>Vejledningen kan både bruges til opbygning af genbrugelig kode [biblioteker] og
+programmer [applikationer, programmel]. Indtil videre skelner denne vejledning
+ikke mellem bibliotek og applikation, da organisationen af kildekode,
+dokumentation, etc. i projektet som udgangspunkt kan foregå på samme måde langt
+hen ad vejen.</p>
+<p>Python-udvikling involverer en rækker værktøjer og processer, der ikke har med
+Python-programmering at gøre. Eksempelvis bruger vi Git til versionsstyring, og
+med GitHub-platformen har vi en central placering til den autoritative historik
+for arkiverne. Med GitHubs Actions kan platformen desuden bruges som central
+udviklingsserver, der automatisk kan kvalitetssikre Python-koden, bygge
+dokumentation og andet. Her beskriver vi kun, hvordan man bruger værktøjer som
+disse fra et Python-synspunkt.</p>
+<p>Indtil videre er fremgangsmåder til pakke-fremstilling [<em>en.</em> build] og
+distribution udeladt. Da vi i organisationen ikke har noget officielt sted at
+lægge færdigbyggede pakker, vi kan hente fra. Da vi anvender
+Python-distributionen MambaForge, er det en mulighed at bygge en pakke i
+et format, der kan installeres af <code class="docutils literal notranslate"><span class="pre">mamba</span></code>. Vi beskriver i stedet en
+fremgangsmåde, hvor brugeren installerer pakken lokalt med git og <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
+<p>Det er desuden ikke formålet her at gå i dybden med Pythons metodologi,
+økosystem, hovedorganisation og andre bidragende organisationer.</p>
+<p><strong>Det primære fokus her er de standarder, konventioner og værktøjskombinationer,
+der virker godt idag for os i SDFI.</strong></p>
+</section>
+<section id="informationskilder">
+<h2>Informationskilder<a class="headerlink" href="#informationskilder" title="Permalink til denne overskrift">¶</a></h2>
+<p>Bedste praksis er dels udtrykt ved standarder, som defineres og implementeres i
+organiserede fællesskaber som <a class="reference external" href="https://www.python.org/psf/">The Python Software Foundation</a>, men må også
+tilpasses de konkrete behov og begrænsninger, som er tilstede i den konkrete
+situation, man sidder i.</p>
+<p>Følgende er derfor et nedslag i nuværende bedste praksis set fra
+Python-organisationens synsvinkel, herunder standard-værktøjs-udviklere
+(SetupTools, PIP), open-source-organisationer som folkene bag MambaForge, samt
+styrelsens og vores egne personlige erfaringer.</p>
+<section id="synsvinkel">
+<h3>Synsvinkel<a class="headerlink" href="#synsvinkel" title="Permalink til denne overskrift">¶</a></h3>
+<p>Som nævnt er synsvinklen valgt, så beskrivelsen af bedste praksis har fokus på
+den gradvise overgang fra start til slutprodukt. Vi ser altså på fremgangsmåder
+og processer, vi som udviklere gennemgår, inden vi kommer frem til
+slutprodukterne. Med et proces-perspektiv giver vi også plads til at nævne mere
+generelle overvejelser og metoder, da de hænger naturligt sammen med mere
+Python-specifikke arbejdsgange.</p>
+<section id="fremgangsmade-checkliste">
+<h4>Fremgangsmåde/checkliste<a class="headerlink" href="#fremgangsmade-checkliste" title="Permalink til denne overskrift">¶</a></h4>
+<ul class="simple">
+<li><p>Installér nyeste version af Python med MambaForge</p></li>
+<li><p>Hav en fornuftig mappestruktur, der understøtter forskellige processer i
+programellets livscyklus</p>
+<ul>
+<li><p>Kildefiler i deres respektive mapper, så som <code class="docutils literal notranslate"><span class="pre">docs/</span></code>, <code class="docutils literal notranslate"><span class="pre">tests/</span></code> og
+<code class="docutils literal notranslate"><span class="pre">src/</span></code>.</p></li>
+<li><p>Hav alle andre filer og mapper i roden af projekt-mappen.</p></li>
+</ul>
+</li>
+<li><p>Opret et moderne Python-projekt</p>
+<ul>
+<li><p>Brug <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></p>
+<ul>
+<li><p>Denne konfigurationsfil bruges til basal opsætning af projektet og
+de værktøjer, der kan læse deres konfigurationer i denne,
+eksempelvis <code class="docutils literal notranslate"><span class="pre">black</span></code> og <code class="docutils literal notranslate"><span class="pre">pytest</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Brug <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code></p>
+<ul>
+<li><p>Bemærk, at der efter <code class="docutils literal notranslate"><span class="pre">setuptools&gt;=43.0.0</span></code> ikke er behov for en
+<code class="docutils literal notranslate"><span class="pre">setup.py</span></code>-fil.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="mappestruktur-og-konfigurationer">
+<h4>Mappestruktur og konfigurationer<a class="headerlink" href="#mappestruktur-og-konfigurationer" title="Permalink til denne overskrift">¶</a></h4>
+<p>Generelt er valget af mappestruktur vigtig for understøttelse de forskellige
+processer i projekt-livscyklussen. Kildekoden er versionsstyret sammen med alt
+andet kildemateriale i en versionsstyret projekt-mappe på GitHub. Hver
+koderevision har tilknyttet dokumentation og testfunktionalitet, samt al anden
+konfiguration til proces-understøttelse. Formålet med at have alt samlet er, at
+hvor alle komponenter i projektet følges ad og for en given Git-revision
+fungerer sammen.</p>
+<p>Konsekvensen af denne fremgangsmåde er blandt andet, at der for en given
+revision af koden ikke bare findes tests, der dækker koden, men også tilhørende
+dokumentation, der beskriver funktionaliteten i den pågældende revision.</p>
+<p>Følgende er et eksempel på mappestrukturen for en færdig Python-pakke i et
+Git-arkiv:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>package
+├── .git
+├── .github
+│   └── workflows
+│       └── main.yaml
+├── .gitignore
+├── docs
+│   ├── index.md
+│   └── ...
+├── environment-dev.yml
+├── environment.yml
+├── LICENSE
+├── mkdocs.yml
+├── pyproject.toml
+├── README.md
+├── scripts
+│   ├── examples
+│   │   └── example1.py
+│   └── ci
+│       └── some_behaviour.sh
+├── setup.cfg
+├── src
+│   └── package
+│       ├── module1.py
+│       ├── module2.py
+│       └── __init__.py
+└── tests
+    └── package
+        ├── test_module1.py
+        └── test_module2.py
+</pre></div>
+</div>
+<p>Bemærkninger:</p>
+<ul class="simple">
+<li><p>Mappen med Python-pakkens kildekode ligger adskilt fra roden i en separat
+mappe <cite>src</cite>.</p></li>
+<li><p>Test-funktionalitet er adskilt fra kildekoden, som den tester, så den ikke
+installeres sammen med pakken.</p>
+<ul>
+<li><p>Brugeren bør ikke have nogen grund til at teste koden.</p></li>
+<li><p>Pakke bør ikke have en masse overflødig funktionalitet med, herunder
+test-data.</p></li>
+</ul>
+</li>
+<li><p>Dokumentations-materiale ud over README-filen og eventuelle små-filer til
+dokumentation, ligger i sin egen mappe af samme årsag som med kildekoden:
+Dokumentationen skal også bygges og udgives.</p></li>
+<li><p>Alle andre mapper og filer er konfigurationer, scripts og andet til brug
+primært for udviklere samt for brugeren, der skal installere pakken ud fra
+arkivet.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="udviklerens-synsvinkel">
+<h2>Udviklerens synsvinkel<a class="headerlink" href="#udviklerens-synsvinkel" title="Permalink til denne overskrift">¶</a></h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><em>Som udvikler</em></div>
+<div class="line"><em>skal jeg have nogle byggematerialer,</em></div>
+<div class="line"><em>der gør det muligt at bygge, dokumentere og kvalitetssikre pakken.</em></div>
+</div>
+</div></blockquote>
+<p>Som udvikler har du to primære modtagere:</p>
+<ul class="simple">
+<li><p>Dig selv og andre udviklere på projektet</p></li>
+<li><p>Brugeren / modtageren.</p></li>
+</ul>
+<p>Filer, som understøtter alt arbejde med kode, dokumentation, etc. ligger som
+hovedregel i arkivets rod eller i mapper herunder, som grupperer efter formål
+eller værktøj.</p>
+<p>Disse filer og mapper er kun til brug af udvikleren og bør være adskilt fra
+kildekode, test-funktionalitet, dokumentation og andre slutprodukter.</p>
+</section>
+<section id="brugerens-synsvinkel-installation-og-dokumentation">
+<h2>Brugerens synsvinkel: installation og dokumentation<a class="headerlink" href="#brugerens-synsvinkel-installation-og-dokumentation" title="Permalink til denne overskrift">¶</a></h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><em>Som bruger</em></div>
+<div class="line"><em>skal jeg kunne installere og bruge pakken</em></div>
+<div class="line"><em>så jeg kan udføre mine egne arbejdsopgaver mere effektivt.</em></div>
+</div>
+</div></blockquote>
+<p>For brugeren er kun produktet og den brugervendte dokumentation relevant.</p>
+<p>Her kan brugeren installere pakken ved at klone projekt-mappen ned med Git. Her
+skal brugeren først checke koden ud og dernæst manuelt oprette et miljø og
+installere de pakker (Afhængigheder), som vores program skal bruge. Python er
+forudsat installeret hos brugeren, og det er antaget, at brugeren kan bruge
+det.</p>
+<p>Man kan i ovenstående tilfælde distribuere koden til et pakke-arkiv som the
+Python Package Index (PyPI). For brugeren ville det derfor være væsentligt
+lettere at installere pakken i et arbitrært mamba-miljø.</p>
+<p>Der kan være flere grunde til, at vi ikke distribuerer koden til et
+(globalt) Python-pakke-arkiv. Én årsag kan være, at vi kan have brug for, at
+brugeren tester en specifik version af koden, hvilket er nemt, hvis brugeren
+bare skal checke den givne version ud kortvarigt.</p>
+</section>
+<section id="reproducerbar-python-miljo-opsaetning">
+<h2>Reproducérbar Python-miljø-opsætning<a class="headerlink" href="#reproducerbar-python-miljo-opsaetning" title="Permalink til denne overskrift">¶</a></h2>
+<p>Pakken, vi bygger, afhænger af valgt Python-version og eventuelle, eksterne
+pakker [tredjepartsbiblioteker]. Når pakken virker, som den skal, er det med de
+versioner af pakkens afhængigheder (og deres egne afhængigheder), som vi enten
+selv valgt specifikt ud eller bare dem, der var nyest, da pakken blev
+påbegyndt.</p>
+<p>Når vi udvikler pakken bruger vi altså en bestemt udgave af Python og specifikke
+versioner af de tredjepartsbiblioteker, som pakken bruger for at opnå sin
+funktionalitet. Alt, hvad pakken afhænger af, kan ændre funktionalitet over
+tid. Nogen gange gør ændringerne i én afhængighed det vanskeligt eller umuligt
+at fungere sammen med de andre afhængigheder eller pakkens egen
+funktionalitet.</p>
+<p>Med <code class="docutils literal notranslate"><span class="pre">mamba</span></code> kan vi installere et isoleret miljø, hvor alle afhængigheder,
+inklusive Python-version, holdes fast og er uafhængige af andre tilsvarende
+miljø-opsætninger.</p>
+<p>De specifikke afhængigheders versioner beskrives i en konfigurationsfil, der
+konventionelt hedder <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> for den brugervendte installation af
+pakken og <code class="docutils literal notranslate"><span class="pre">environment-dev.yml</span></code> for udviklingsmiljøet. Sidstnævnte inkluderer
+typisk ekstra værktøjer, som kun er relevante for udviklere.</p>
+<p>Fordelen er altså, at man for både brugere og udviklere sikrer, at de til hver
+revision og version af pakken, kan installere opræcis de afhængigheder, der
+skal til for at den pågældende version af pakken virker.</p>
+<section id="udviklingsmiljo">
+<h3>Udviklingsmiljø<a class="headerlink" href="#udviklingsmiljo" title="Permalink til denne overskrift">¶</a></h3>
+<p>Begynd med at oprette konfigurationsfilen <code class="docutils literal notranslate"><span class="pre">environment-dev.yml</span></code> med
+beskrivelsen dine afhængigheder som udvikler.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">package-dev</span><span class="w"></span>
+<span class="nt">channels</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span><span class="w"></span>
+<span class="nt">dependencies</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3.10</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest</span><span class="w"></span>
+</pre></div>
+</div>
+<p>I ovenstående eksempel navngiver vi miljøet efter pakkens navn med suffikset
+<code class="docutils literal notranslate"><span class="pre">-dev</span></code> for at vise, at dette er miljø-opsætning for udviklere af pakken.</p>
+<p>Når nye pakker skal tilføjes, så skriv navn og version in i filen manuelt.</p>
+<p>Konfigurationsfilen kan læses af <code class="docutils literal notranslate"><span class="pre">mamba</span></code> på følgende måde:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)&gt; mamba env create -f environment-dev.yml
+</pre></div>
+</div>
+<p>Og miljøet kan herefter aktiveres med:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)&gt; mamba activate package-dev
+(package-dev)&gt;
+</pre></div>
+</div>
+<p>Vi har nu adgang til Python 3.10</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(package-dev)&gt; python
+Python 3.10.4 | packaged by conda-forge | (main, Mar 24 2022, 17:32:50) [MSC v.1929 64 bit (AMD64)] on win32
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>samt test-værktøjet <code class="docutils literal notranslate"><span class="pre">pytest</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(package-dev)&gt; pytest
+============================= test session starts ==============================
+platform win32 -- Python 3.10.4, pytest-7.1.1, pluggy-1.0.0
+rootdir: C:\Users\B088195\Desktop\git\package
+collected 0 items
+
+============================ no tests ran in 0.01s =============================
+
+(package-dev)&gt;
+</pre></div>
+</div>
+<p>som vi kommer tilbage til nedenfor.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advarsel</p>
+<p>Eksempel på ikke-anbefalet praksis</p>
+<p>Vi undlader at bruge <code class="docutils literal notranslate"><span class="pre">mamba</span></code> til at oprette miljø-konfigurationsfilen,
+fordi alle afhængigheder til de pakker, vi eksplicit skrev ovenfor kommer
+med. Samtidig tilføjer kommandoen også en linje <code class="docutils literal notranslate"><span class="pre">prefix:</span></code> med konkret
+placering af miljøet på maskinen, hvor nedenstående kommando blev skrevet.</p>
+<p>Til reference er her skridtene til at lade <code class="docutils literal notranslate"><span class="pre">mamba</span></code> oprette miljø-filen:</p>
+<ul>
+<li><p>Opret et miljø til udvikling af pakken, her kaldet <code class="docutils literal notranslate"><span class="pre">package</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)&gt; mamba create -n package-dev
+</pre></div>
+</div>
+</li>
+<li><p>Aktivér miljøet</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)&gt; mamba activate package-dev
+(package-dev)&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Opret en mamba-miljø-konfigurationsfil:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(package-dev)&gt; mamba env export -f environment-dev.yml
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<section id="miljo-opsaetning-til-brugerinstallation">
+<h3>Miljø-opsætning til brugerinstallation<a class="headerlink" href="#miljo-opsaetning-til-brugerinstallation" title="Permalink til denne overskrift">¶</a></h3>
+<p>For brugeren, der kun skal installere pakken og dennes afhængigheder, opretter
+man nemt et tilsvarende miljø, men uden de for udvikleren relevante
+hjælpe-værktøjer.</p>
+<p>Et tilsvarende eksempel svarende til ovenstående opsætning for udvikleren ses
+nedenfor for konfigruationsfilen <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">package</span><span class="w"></span>
+<span class="nt">channels</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span><span class="w"></span>
+<span class="nt">dependencies</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3.10</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For brugeren bliver den tilsvarende vejledning så</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)&gt; mamba env create -f environment.yml
+</pre></div>
+</div>
+<p>Og miljøet kan herefter aktiveres med:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base)&gt; mamba activate package
+(package)&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemærk</p>
+<p>Brug unikke navne til miljøerne</p>
+<p>Som det fremgår ovenfor, så er det primære navn på miljøet det samme som
+pakken (med <code class="docutils literal notranslate"><span class="pre">-dev</span></code>-suffiks for udviklingsmiljøet).</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span></code>/<code class="docutils literal notranslate"><span class="pre">mamba</span></code> lægger i udgangspunktet alle miljøerne på samme
+placering i dét miljø, de installeres i. Derfor skal miljø-navnene
+nødvendigvis være unikke.</p>
+</div>
+</section>
+<section id="konklusion">
+<h3>Konklusion<a class="headerlink" href="#konklusion" title="Permalink til denne overskrift">¶</a></h3>
+<p>Vi har nu en miljø-opsætning til os selv og andre udviklere, som definerer de
+fælles værktøjer, der er relevante under udviklingen af pakken.</p>
+<p>Vi har også en tilsvarende opsætning for brugeren, som skal installere pakken.</p>
+<p>Disse to filer definerer de afhængigheder, vi starter pakken med. Tilføj disse
+filer til versonsstyringen, og de kan nu deles og ændres på tværs af revisioner
+og pakkens versioner.</p>
+</section>
+</section>
+<section id="python-konfigurationsfiler">
+<h2>Python-konfigurationsfiler<a class="headerlink" href="#python-konfigurationsfiler" title="Permalink til denne overskrift">¶</a></h2>
+<p>En ren Python-pakke bliver i dag defineret med følgende opsætning:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>package
+├── pyproject.toml
+├── setup.cfg
+└── src
+    └── package
+        ├── module1.py
+        ├── module2.py
+        └── __init__.py
+</pre></div>
+</div>
+<p>Det er normal konvention at kalde rodmappen det samme som pakke-mappen inde i
+<code class="docutils literal notranslate"><span class="pre">src</span></code>-mappen. <code class="docutils literal notranslate"><span class="pre">src</span></code>-opsætningen er efterhånden ved at blive alment kendt,
+og strukturen er blandt andet valgt, fordi det tvinger én til at installere
+pakken lokalt, når man skal teste koden.</p>
+<p>Python-fortolkeren betragter en mappe med python-moduler som en pakke. Hvis
+pakke-mappen <code class="docutils literal notranslate"><span class="pre">package</span></code> lå direkte i roden af projekt-mappen, kan
+test-funktionalitet, der kører fra samme mappe ikke importere en installeret
+version af pakken, fordi Python-fortolkeren starter med at lede efter
+importerede moduler i samme mappe, som test-programmet kører i.</p>
+<p>De to filer i projekt-mappen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code></p></li>
+</ul>
+<p>udgør vores pakke-opsætning. <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> [<a class="reference external" href="https://toml.io/">læs mere om TOML</a>] fortæller, at vi har med et Python-projekt at gøre, mens
+<code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> indeholder konfiguration til standard-pakke-værktøjet
+<a class="reference external" href="https://setuptools.pypa.io/">SetupTools</a>. Med de nyere versioner af SetupTools er man gået væk fra at
+bruge en <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>-fil til kun at bruge en konfigurationsfil. <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>
+kan stadig bruges, og det er stadig meget normalt at se denne forældede praksis
+i eksisterende Python-pakker.</p>
+<p><code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> indeholder alle informationer om pakken, mens <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>
+som minimum skal indeholde konfiguration af pakke-værktøj, som altså her er
+SetupTools. Der findes idag alternative pakke-væktøjer med forskellig
+popularitet, som lægger al deres konfiguration ind i <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. Vi
+anbefaler dog, at vi bruger SetupTools, som er mere bredt anvendt.</p>
+<p>Følgende er en minimal opsætning for <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> samt et eksempel på
+pakke-metadata i <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># pyproject.toml</span><span class="w"></span>
+<span class="k">[build-system]</span><span class="w"></span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s">&#39;setuptools&gt;=43.0.0&#39;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;setuptools.build_meta&#39;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1">; setup.cfg</span><span class="w"></span>
+<span class="k">[metadata]</span><span class="w"></span>
+<span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">package</span><span class="w"></span>
+<span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.1.0</span><span class="w"></span>
+<span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Best Practise Package</span><span class="w"></span>
+<span class="na">long_description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">file: README.md</span><span class="w"></span>
+<span class="na">long_description_content_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">text/markdown; charset=UTF-8</span><span class="w"></span>
+<span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/...</span><span class="w"></span>
+<span class="na">author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Firstname Lastname</span><span class="w"></span>
+<span class="na">author_email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">firstname.lastname@sdfi.dk</span><span class="w"></span>
+<span class="na">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">MIT</span><span class="w"></span>
+<span class="na">license_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">LICENSE</span><span class="w"></span>
+<span class="na">project_urls</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="na">Documentation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://Kortforsyningen.github.io/...</span><span class="w"></span>
+<span class="w">    </span><span class="na">Source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/Kortforsyningen/...</span><span class="w"></span>
+<span class="w">    </span><span class="na">Tracker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/.../issues</span><span class="w"></span>
+
+<span class="k">[options]</span><span class="w"></span>
+<span class="na">zip_safe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">False</span><span class="w"></span>
+<span class="na">package_dir</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s">src</span><span class="w"></span>
+<span class="na">packages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">find:</span><span class="w"></span>
+<span class="na">platforms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">any</span><span class="w"></span>
+<span class="na">python_requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&gt;=3.10</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Med ovenstående opsætning kan Pythons pakke-styringsværkøj <code class="docutils literal notranslate"><span class="pre">pip</span></code> selv finde ud
+af at installere pakken <code class="docutils literal notranslate"><span class="pre">setuptools</span></code>, som bygger pakken med de givne
+metadata, som <code class="docutils literal notranslate"><span class="pre">pip</span></code> så installerer.</p>
+<p>For at installere pakken, så den er tilgængelig for Python-fortolkeren, vi
+bruger i conda-miljøet <code class="docutils literal notranslate"><span class="pre">package-dev</span></code>, bruger vi <code class="docutils literal notranslate"><span class="pre">pip</span></code> som et modul i det
+aktiverede miljø, så vi er sikre på, at vi ikke bruger en anden
+<code class="docutils literal notranslate"><span class="pre">pip</span></code>-kommando, der kan være tilgængelig i terminalen:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(package-dev)&gt; python -m pip install -e .
+</pre></div>
+</div>
+<p>Læs mere om de enkelte konfigurationsmuligheder i dokumentationen for
+<a class="reference external" href="https://setuptools.pypa.io/">SetupTools</a>.</p>
+</section>
+<section id="test-funktionalitet">
+<h2>Test-funktionalitet<a class="headerlink" href="#test-funktionalitet" title="Permalink til denne overskrift">¶</a></h2>
+<p>Denne vejledning har <a class="reference internal" href="test.html#tests"><span class="std std-ref">et separat kapitel om implementation af
+test-funktionalitet og anden kvalitetssikring</span></a> i Python. Her
+nævner vi kort, at al test-funktionalitet bør ligge separat i sin egen mappe
+kaldet <code class="docutils literal notranslate"><span class="pre">tests/</span></code>.</p>
+<p>De relevante konfigurations-filer og mapper med test-funktionaliteten ser
+således ud:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>package
+├── environment-dev.yml
+├── pyproject.toml
+├── setup.cfg
+└── tests
+    └── package
+        ├── test_module1.py
+        └── test_module2.py
+</pre></div>
+</div>
+<p>Bemærk, at test-koden følger samme struktur som pakkens undermapper.</p>
+</section>
+<section id="dokumentation">
+<h2>Dokumentation<a class="headerlink" href="#dokumentation" title="Permalink til denne overskrift">¶</a></h2>
+<ul class="simple">
+<li><p>Dokumentationen bør være versionsstyret og i hver revision passe til koden,
+den følger.</p></li>
+<li><p>På denne måde kan man altid gå tilbage til en tidligere version af koden og
+se, hvordan den pågældende version skulle bruges.</p></li>
+</ul>
+<p>De relevante konfigurations-filer og mapper med dokumentationsmateriale og
+opsætning i vores eksempel ser således ud:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>package
+├── docs
+│   ├── index.md
+│   └── ...
+├── environment-dev.yml
+├── LICENSE
+├── mkdocs.yml
+├── pyproject.toml
+├── README.md
+├── setup.cfg
+└── src
+    └── package
+        ├── module1.py
+        ├── module2.py
+        └── __init__.py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Mappen <code class="docutils literal notranslate"><span class="pre">docs/</span></code> indeholder en komplet beskrivelse af pakkens indhold til
+alle relevante modtagere, eksempelvis udviklere, brugere, driftsansvarlige
+og andre interessenter. Indholdet består af kildemateriale, primært i form
+af tekst og billeder. Tekst-dokumenterne indeholder typisk direktiver, der
+af en dokumentations-bygger, så som <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> eller <a class="reference external" href="https://www.mkdocs.org/">MkDocs</a>, oversættes
+til eksempelvis faktabokse, advarsler, tips og tricks, eller deciderede
+kommandoer, hvis resultater kommer med i det endelige
+dokumentationsmateriale, der skal udgives.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdocs.yml</span></code> er et eksempel på en konfigurationsfil for et
+dokumentationsværktøj. I dette eksempel illustrerer vi det med <a class="reference external" href="https://www.mkdocs.org/">MkDocs</a>,
+der er forholdsvis hurtigt at sætte op og bruger <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a>
+[fil-endelse: <code class="docutils literal notranslate"><span class="pre">.md</span></code>] som kildeformat. For en robust og markant mere
+alsidig løsning, anbefaler vi Sphinx-dokumentationsværktøjet, der bruger
+reStructuredText [fil-endelse: <code class="docutils literal notranslate"><span class="pre">.rst</span></code>] som kildeformat.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> er dokumentation af pakkens rette, juridiske brug.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">README</span></code>-filen, her i Markdown-format, er dén fil, man bør læse først, når
+man tilgår projektet. På GitHub er den fremhævet som hoveddokumentationen i
+arkivets rod <a class="footnote-reference brackets" href="#id2" id="id1">1</a>. Derfor bør den indeholde de vigtigste oplysninger, der
+gør læseren istand til at forstå, hvad projektet går ud på, og hvordan man
+bruger det og bidrager til at forbedre det.</p></li>
+<li><p>Konfigurationsfilerne <code class="docutils literal notranslate"><span class="pre">environment-dev.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> og
+<code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> er med, fordi de er nødvendige for at bygge dokumentationen.</p></li>
+<li><p>Pakkens kildekode i <code class="docutils literal notranslate"><span class="pre">src/</span></code> er med, fordi kildekodens dokumentation i form
+af <a class="reference external" href="https://peps.python.org/pep-0257/">Python docstrings</a> kan bruges af dokumentationsværktøjet til
+automatisk at få produceret dokumentation af pakkens moduler og
+applikationsprogrammeringsflade [<em>en.</em> application-programming interface,
+API].</p></li>
+</ul>
+<p class="rubric">Fodnoter</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Man får samme effekt i undermapper, der inkluderer en README-fil, men
+hold dig til én README i projekt-mappens rod.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="tools.html"
+       title="forrige kapitel">← Udviklingsværktøjer</a>
+  </li>
+  <li class="next">
+    <a href="test.html"
+       title="næste kapitel">Test din kode →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Ophavsret 2022, Styrelsen for Dataforsyning og Infrastruktur / Geografiske Referencer.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

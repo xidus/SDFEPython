@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html  lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>Udviklingsværktøjer</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Indeks" href="genindex.html" />
+  <link rel="search" title="Søg" href="search.html" />
+  <link rel="next" title="Pakke-opbygning" href="package.html" />
+  <link rel="prev" title="Anbefalet opsætning" href="setup.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <img class="logo" src="_static/sdfilogo.jpg" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Hurtig søgning</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Søg" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#python-i-sdfi">Indhold:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="setup.html" class="reference internal ">Anbefalet opsætning</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Udviklingsværktøjer</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#integreret-udviklingsmiljo" class="reference internal">Integreret udviklingsmiljø</a></li>
+                
+                  <li class="toctree-l2"><a href="#automatisk-kodeformatering" class="reference internal">Automatisk kodeformatering</a></li>
+                
+                  <li class="toctree-l2"><a href="#test-rammevaerk" class="reference internal">Test-rammeværk</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="package.html" class="reference internal ">Pakke-opbygning</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="test.html" class="reference internal ">Test din kode</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pakker.html" class="reference internal ">Gode Pythonpakker</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="referencer.html" class="reference internal ">Referencer</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Udviklingsværktøjer</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="setup.html"
+       title="forrige kapitel">← Anbefalet opsætning</a>
+  </li>
+  <li class="next">
+    <a href="package.html"
+       title="næste kapitel">Pakke-opbygning →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="udviklingsvaerktojer">
+<span id="vaerktojer"></span><h1>Udviklingsværktøjer<a class="headerlink" href="#udviklingsvaerktojer" title="Permalink til denne overskrift">¶</a></h1>
+<p>En række værktøjer kan være
+fordelagtige at bruge i forbindelse med Pythonudvikling. Følgende er en række
+anbefalinger, der kan øge kvaliteten af den udviklede kode. De kan hjælpe med
+følgende:</p>
+<ul class="simple">
+<li><p>at læse og redigere kode. Også kaldet et integreret udviklingsmiljø.</p></li>
+<li><p>at rette koden ind, mens mans skriver den [<em>en.</em> linting] <a class="footnote-reference brackets" href="#id2" id="id1">1</a></p></li>
+<li><p>(automatisk) kodeformatering, så koden skrives på samme måde gennem hele
+kodebasen.</p></li>
+<li><p>at køre kodebasens test-kode [test-rammeværk].</p></li>
+<li><p>at analysere kodens kvalitet, eksempelvis ved statisk kodeanalyse eller
+vedligeholdeskompleksiteten over tid.</p></li>
+</ul>
+<p>Vi gennemgår nogle af ovenstående, men tilføjer flere over tid.</p>
+<section id="integreret-udviklingsmiljo">
+<h2>Integreret udviklingsmiljø<a class="headerlink" href="#integreret-udviklingsmiljo" title="Permalink til denne overskrift">¶</a></h2>
+<p>Det integrerede udviklingsmiljø [<em>en</em> integrated development environment, IDE]
+er typisk et tekstredigeringsværktøj, der giver en udvikler mulighed for at
+redigere kildekode og helt eller delvist automatisk udføre rutine-opgaver så
+som at bygge, teste, debug’e, analysere og dokumentere kode med værktøjer
+(ofte plugins), som er integrerede i tekstredigeringsværktøjet.</p>
+<section id="microsoft-visual-studio-code-vscode">
+<h3>Microsoft Visual Studio Code [VSCode]<a class="headerlink" href="#microsoft-visual-studio-code-vscode" title="Permalink til denne overskrift">¶</a></h3>
+<p>IDE’er som VSCode har indbygget mulighed for at tilføje udvidelser [extensions i
+VSCode], der er specielt udviklet til IDE’en. Nogle udvidelser kan dog afhænge
+af, at du selv installerer nogle pakker ved siden af. En oplagt udvidelse at
+installere fra <a class="reference external" href="https://marketplace.visualstudio.com/">Market Place</a> er <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a>, som blandt andet tilføjer linting.</p>
+<p>Det er ikke alle udviklingsværktøjer, der er knyttet til en given IDE. Der
+findes indbyggede og tredjeparts-biblioteker, som både kan integreres med en
+IDE, men også kan køre selvstændigt.</p>
+<p>I denne vejlednings eksempler udgør udviklingsmiljøet et <code class="docutils literal notranslate"><span class="pre">conda</span></code>-miljø
+(installeret med <code class="docutils literal notranslate"><span class="pre">mamba</span></code>-værktøjet) defineret med en konfigurationsfil
+<code class="docutils literal notranslate"><span class="pre">environment-dev.yml</span></code>, som indeholder en liste med (Python-)pakker, der skal
+bruges af udviklere på det givne projekt.</p>
+<p>Disse værktøjer kan typisk bruges alene, men fordi IDE’er som VSCode automatisk
+kan se, at man arbejder i et <code class="docutils literal notranslate"><span class="pre">conda</span></code>-miljø, kan brugergrænsefladen i IDE’en
+forholdsvis nemt sættes op, så man nemmere kan bruge værktøjerne.</p>
+<figure class="align-center" id="id3">
+<img alt="_images/vscode_discovering-python-interpreters.png" src="_images/vscode_discovering-python-interpreters.png" />
+<figcaption>
+<p><span class="caption-text"><em>Nederst til venstre i VSCode, kan man i et Python-projekt se, at IDE’en
+automatisk leder efter alle de Python-fortolkere, programmet kan finde.</em></span><a class="headerlink" href="#id3" title="Permahenvisning til dette billede">¶</a></p>
+</figcaption>
+</figure>
+<p>Programmet fanger også fortolkerne i de enkelte <code class="docutils literal notranslate"><span class="pre">mamba</span></code>-miljøer, og det er
+efterfølgende nemt at skifte til dén fortolker, man ønsker at bruge i sin
+udvikling ved enten at bruge VSCode’s <a class="reference external" href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">Command Palette</a>
+[<code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">Shift</span></code> + <code class="docutils literal notranslate"><span class="pre">p</span></code>] vælger »Python: Select Interpreter«.</p>
+<figure class="align-center" id="id4">
+<img alt="_images/vscode_button-to-open-python-interpreter-selection-menu.png" src="_images/vscode_button-to-open-python-interpreter-selection-menu.png" />
+<figcaption>
+<p><span class="caption-text"><em>Nederst til højre i VSCode kan man trykke på knappen »Python«, for at åbne
+listen med mulige Python-fortolkere.</em></span><a class="headerlink" href="#id4" title="Permahenvisning til dette billede">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="terminalen">
+<h3>Terminalen<a class="headerlink" href="#terminalen" title="Permalink til denne overskrift">¶</a></h3>
+<p>Tilgængelige terminaler såsom POwer Shell og Command Prompt er integreret i
+VSCode og kan åbnes som et separat panel i brugergrænsefladen. Arbejder man fra
+terminalen og vil gerne åbne et dokument med en kommando i VSCode, skal
+terminalen have installeret kommandolinjeværktøjet <code class="docutils literal notranslate"><span class="pre">code</span></code>. Kommandoen kan
+installeres ved fra VSCode’s Command Palette at vælge »install ›code‹ command
+in path«.</p>
+</section>
+</section>
+<section id="automatisk-kodeformatering">
+<h2>Automatisk kodeformatering<a class="headerlink" href="#automatisk-kodeformatering" title="Permalink til denne overskrift">¶</a></h2>
+<p>Python core developer Jack Diederich udtrykker med sætningen <em>All effort feels
+like useful effort</em> [<a class="reference external" href="https://youtu.be/rrBJVMyD-Gs?t=178">link</a>] sin erfaring
+med blandt andet kvalitetssikring af kode med <em>code review</em> og <em>linting</em>, hvor
+man bruger tid på at tale om forbedringer af kode-opsætningen. Hans pointe er,
+at éns indsats føles nyttig, fordi man har brugt tid på den. Det er bare ikke
+besværet i sig selv, der giver god kode (eller noget andet for dén sags
+skyld).</p>
+<p>En problemstilling, der ofte fylder en del hos udviklere, er valget af kodestil,
+hvilket tager ressourcer fra udvikling af konkret, værdiskabende
+funktionalitet.</p>
+<p>Løsningen er en fællesskabsfremmende fjende: <a class="reference external" href="https://github.com/psf/black">Black</a>, som er et værktøj, der
+automatisk reformaterer kode til en énsartet syntaks, som er nem at læse og
+minimerer størrelsen på diffs. Formålet med værktøjet er, at lade værktøjet
+styre hvordan koden fremstår, så man kan bruge sin tid på vigtigere aspekter af
+koden.</p>
+<p>Det smarte ved værktøjet er, at man ikke behøver at bekymre sig om, hvordan man
+selv skriver koden, da <code class="docutils literal notranslate"><span class="pre">black</span></code> retter al kode til. Derfor kan man bruge tiden
+på at tænke over indholdet og mindre over, hvordan koden skal se ud.</p>
+<section id="tilpasninger">
+<h3>Tilpasninger<a class="headerlink" href="#tilpasninger" title="Permalink til denne overskrift">¶</a></h3>
+<p>Black kan tilpasses i <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, hvis man eksempelvis ønsker at undlade
+at omformatere visse filer.</p>
+<div class="admonition important">
+<p class="admonition-title">Vigtigt</p>
+<p>I nogle tilfælde kan black forringe læsbarheden, som det kan ses af følgende
+eksempel, hvor en matrix er formateret for netop at øge læsbarheden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">λ</span><span class="p">)],</span>
+    <span class="p">[</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span>  <span class="n">cos</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">λ</span><span class="p">)],</span>
+    <span class="p">[</span>        <span class="n">cos</span><span class="p">(</span><span class="n">φ</span><span class="p">),</span>       <span class="mi">0</span><span class="p">,</span>        <span class="n">sin</span><span class="p">(</span><span class="n">φ</span><span class="p">)],</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<p>Sender man ovenstående igennem <code class="docutils literal notranslate"><span class="pre">black</span></code> får man følgende:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">λ</span><span class="p">)],</span>
+        <span class="p">[</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">λ</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">cos</span><span class="p">(</span><span class="n">φ</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="n">φ</span><span class="p">)],</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>For at markere i koden, hvor man ønsker, at holde fast i sin egen
+formatering, kan man skrive ovenstående, som får <code class="docutils literal notranslate"><span class="pre">black</span></code> til at ignorere
+denne del af koden.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="c1"># fmt: off</span>
+</span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">λ</span><span class="p">)],</span>
+    <span class="p">[</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span>  <span class="n">cos</span><span class="p">(</span><span class="n">λ</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">φ</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">λ</span><span class="p">)],</span>
+    <span class="p">[</span>        <span class="n">cos</span><span class="p">(</span><span class="n">φ</span><span class="p">),</span>       <span class="mi">0</span><span class="p">,</span>        <span class="n">sin</span><span class="p">(</span><span class="n">φ</span><span class="p">)],</span>
+<span class="p">])</span>
+<span class="hll"><span class="c1"># fmt: on</span>
+</span></pre></div>
+</div>
+<p><strong>Husk dog, at der skal være god grund til at omgå Blacks standard-indstillinger.</strong></p>
+</div>
+</section>
+</section>
+<section id="test-rammevaerk">
+<h2>Test-rammeværk<a class="headerlink" href="#test-rammevaerk" title="Permalink til denne overskrift">¶</a></h2>
+<p>Python kommer med indbygget test-funktionalitet i modulet <code class="docutils literal notranslate"><span class="pre">unittest</span></code>, som fint
+kan bruges. Det er dog langt hurtigere og nemmere at komme igang med det
+relativt udbredte værktøj <code class="docutils literal notranslate"><span class="pre">pytest</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pytest</span></code> er en Python-pakke, som typisk bruges både som modul og
+kommandolinjeværktøj.</p>
+<p>Se <a class="reference internal" href="test.html#tests"><span class="std std-ref">kapitlet om test-opsætning</span></a> for flere detaljer om brugen
+af pytest.</p>
+<p class="rubric">Fodnoter</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>På engelsk/amerikansk bruges begrebet <em>linter</em>, som er en maskine til at
+fjerne bomuldhår, -frø og fnug/fnuller fra bomuld under opspinningsprocessen
+under tekstilproduktionen.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="setup.html"
+       title="forrige kapitel">← Anbefalet opsætning</a>
+  </li>
+  <li class="next">
+    <a href="package.html"
+       title="næste kapitel">Pakke-opbygning →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Ophavsret 2022, Styrelsen for Dataforsyning og Infrastruktur / Geografiske Referencer.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

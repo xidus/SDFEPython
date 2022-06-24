@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html  lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>Gode Pythonpakker</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Indeks" href="genindex.html" />
+  <link rel="search" title="Søg" href="search.html" />
+  <link rel="next" title="Referencer" href="referencer.html" />
+  <link rel="prev" title="Test din kode" href="test.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <img class="logo" src="_static/sdfilogo.jpg" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Hurtig søgning</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Søg" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#python-i-sdfi">Indhold:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="setup.html" class="reference internal ">Anbefalet opsætning</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tools.html" class="reference internal ">Udviklingsværktøjer</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="package.html" class="reference internal ">Pakke-opbygning</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="test.html" class="reference internal ">Test din kode</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Gode Pythonpakker</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#handtering-af-geodata" class="reference internal">Håndtering af geodata</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="referencer.html" class="reference internal ">Referencer</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Gode Pythonpakker</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="test.html"
+       title="forrige kapitel">← Test din kode</a>
+  </li>
+  <li class="next">
+    <a href="referencer.html"
+       title="næste kapitel">Referencer →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="gode-pythonpakker">
+<span id="pythonpakker"></span><h1>Gode Pythonpakker<a class="headerlink" href="#gode-pythonpakker" title="Permalink til denne overskrift">¶</a></h1>
+<p>I dette kapitel beskriver vi en række gode og anbefalelsesværdige Pythonpakker, der kan hjælpe med at
+løse gængse problemstillinger en udvikler i SDFI ofte vil støde på. I udvælgelsen af pakkerne
+herunder er der lagt vægt på særligt pythonske implementeringer, der benytter sig af koncepter
+introduceret i nyere udgaver af Python.</p>
+<section id="handtering-af-geodata">
+<h2>Håndtering af geodata<a class="headerlink" href="#handtering-af-geodata" title="Permalink til denne overskrift">¶</a></h2>
+<p><a class="reference external" href="https://gdal.org/">GDAL</a> er det mest udbredte programmel til læsning, skrivning og manipulation
+af geodata. GDAL kan bearbejde både raster- og vektordata. Vektordata manipuleres med
+underbiblioteket OGR. GDAL-projektet tilbyder pythonpakke men den er ikke særligt intuitiv at
+bruge for pythonudviklere, da der er tale om en en-til-en mapning af det underliggende C API.
+Bedre alternativer er pakkerne Rasterio (rasterdata) og Fiona (vektordata), der begge tilbyder
+et bedre og mere pythonsk API til GDAL og OGR.</p>
+<section id="rasterio">
+<h3>Rasterio<a class="headerlink" href="#rasterio" title="Permalink til denne overskrift">¶</a></h3>
+<p><a class="reference external" href="https://rasterio.readthedocs.io/en/latest/index.html">Rasterio dokumentation</a>.</p>
+<p>Rasterio bruges til at læse og skrive rasterdata. Herunder eksempler på begge dele.</p>
+<p>Læsning af rasterdata er utroligt simpelt og minder meget om måden almindelige tekstfiler
+læses med Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rasterio</span>
+
+ <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;eksempel.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">grid</span><span class="p">:</span>
+     <span class="c1"># Læs information om hele filen</span>
+     <span class="n">epsg_kode</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">crs</span>
+     <span class="n">gridstørrelse</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">shape</span>
+
+     <span class="c1"># Behandl data for hvert enkelt bånd i rasterfilen.</span>
+     <span class="c1"># Bemærk at data returnes i form af numpy arrays.</span>
+     <span class="k">for</span> <span class="n">båndnr</span> <span class="ow">in</span> <span class="n">grid</span><span class="o">.</span><span class="n">indexes</span><span class="p">:</span>
+         <span class="n">data</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">båndnr</span><span class="p">)</span>
+         <span class="n">gennemsnit</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Oprettelse af en ny fil og eftefølgende skrivning af nyt data er mere omfattende. Det forudsættes
+at der er taget stilling til filens dækningsområde, koordinatsystem, antal bånd, gridstørrelse,
+filformat og datatype. Alt dette kan dog klares relativt simpelt, som demonstreret i eksemplet
+herunder, hvor vi laver en tiff-fil med tre bånd, der omtrentligt dækker det danske område og
+registrerer data i ETRS89-koordinater.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rasterio</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Grid dimensioner</span>
+<span class="n">antal_bånd</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">højde</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">bredde</span> <span class="o">=</span> <span class="mi">256</span>
+
+<span class="c1"># Dækningsområde</span>
+<span class="n">vest</span> <span class="o">=</span> <span class="mf">8.0</span>
+<span class="n">øst</span> <span class="o">=</span> <span class="mf">13.0</span>
+<span class="n">syd</span> <span class="o">=</span> <span class="mf">54.0</span>
+<span class="n">nord</span> <span class="o">=</span> <span class="mf">58.0</span>
+
+<span class="c1"># Opsætning af rasterfil</span>
+<span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GTiff&quot;</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="n">højde</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="n">bredde</span><span class="p">,</span>
+    <span class="n">count</span><span class="o">=</span><span class="n">antal_bånd</span><span class="p">,</span>
+    <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:4258&quot;</span><span class="p">,</span> <span class="c1"># ETRS89, geografiske koordinater</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">rasterio</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">from_bounds</span><span class="p">(</span><span class="n">vest</span><span class="p">,</span> <span class="n">syd</span><span class="p">,</span> <span class="n">øst</span><span class="p">,</span> <span class="n">nord</span><span class="p">,</span> <span class="n">bredde</span><span class="p">,</span> <span class="n">højde</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;ny_fil.tif&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">grid</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">båndnr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">antal_bånd</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># bånd er 1-indekserede</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">højde</span><span class="p">,</span> <span class="n">bredde</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+        <span class="n">grid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">båndnr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Læs mere om Rasterio i
+<a class="reference external" href="https://rasterio.readthedocs.io/en/latest/index.htm">projektets dokumentation</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ved installation af Rasterio følger kommandolinjeværktøjet <code class="docutils literal notranslate"><span class="pre">rio</span></code> og med. <code class="docutils literal notranslate"><span class="pre">rio</span></code> er et
+mere sammenhængende alternativ til GDALs kommandolinjeapplikationer. Læs mere
+<a class="reference external" href="https://rasterio.readthedocs.io/en/latest/cli.html#command-line-user-guide">her</a>.</p>
+</div>
+</section>
+<section id="fiona">
+<h3>Fiona<a class="headerlink" href="#fiona" title="Permalink til denne overskrift">¶</a></h3>
+<p><a class="reference external" href="https://fiona.readthedocs.io/en/latest/manual.html">Fiona dokumentation</a>.</p>
+<p>Fiona er en moderne pendant til OGR på samme måde som Rasterio er det for GDAL. Fiona tilbyder
+en mere pythonsk og intuitiv måde at skrive og læse vektordata på.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemærk</p>
+<p>På engelsk udtales OGR udtales oftest »Ogre« (<em>dansk</em> trold) . Fans af Shrek-serien vil
+genkende at Fiona er den pæne side af trolden. I Python er Fiona den pæne udgave af OGR.</p>
+</div>
+<p>At læse vektordata med Fiona er lige som at gennemløbe en liste af Python-dicts. Hver
+feature udgøres af en dict der indeholder information om geometri og attributter. Her et eksempel
+på en punktfeature fra stednavneregisteret:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;coordinates&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">595507.300561634</span><span class="p">,</span> <span class="mf">6402053.2234713</span><span class="p">,</span> <span class="o">-</span><span class="mf">999.0</span><span class="p">),</span>
+              <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Point&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;9480&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;FEAT_ID&#39;</span><span class="p">,</span> <span class="mi">261996</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;FEAT_KODE&#39;</span><span class="p">,</span> <span class="mi">5010</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;FEAT_TYPE&#39;</span><span class="p">,</span> <span class="s1">&#39;strandpost&#39;</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;AREAL&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;SNSOR_ID&#39;</span><span class="p">,</span> <span class="mi">1006651</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;NAVN&#39;</span><span class="p">,</span> <span class="s1">&#39;E320&#39;</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;STAMNAVN&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;STAMOPL&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;GODKENDT&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;INDB_ANTAL&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;LAENGDE&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;DQ_INDEX&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;TIMEOF_CRE&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-07-01&#39;</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;TIMEOF_PUB&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-07-01&#39;</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;TIMEOF_REV&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+                            <span class="p">(</span><span class="s1">&#39;TIMEOF_EXP&#39;</span><span class="p">,</span> <span class="s1">&#39;2018-03-31&#39;</span><span class="p">)]),</span>
+ <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Feature&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Herunder et eksempel på læsning af punkter fra en shapefil. I eksemplet finder vi det nordligste
+punkt i datasættet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fiona</span>
+
+<span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;eksempel.shp&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">punkter</span><span class="p">:</span>
+    <span class="n">northing_maks</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">nordligste_punkt</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">punkt</span> <span class="ow">in</span> <span class="n">punkter</span><span class="p">:</span>
+        <span class="n">easting</span><span class="p">,</span> <span class="n">northing</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">punkt</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">][</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">northing</span> <span class="o">&gt;</span> <span class="n">northing_maks</span><span class="p">:</span>
+            <span class="n">northing_maks</span> <span class="o">=</span> <span class="n">northing</span>
+            <span class="n">nordligste_punkt</span> <span class="o">=</span> <span class="n">punkt</span>
+</pre></div>
+</div>
+<p>Skrivning af data til en ny fil er selvsagt mere omfattende end at læse data fra
+en eksisterende fil. I eksemplet herunder oprettes en ny shapefil med afsæt i et schema, der
+definerer geometritype og attributter for datasættet. Efterfølgende åbnes en ny fil og denne
+populeres med data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fiona</span>
+<span class="kn">import</span> <span class="nn">fiona.crs</span>
+
+<span class="n">SCHEMA</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">(</span><span class="s2">&quot;navn&quot;</span><span class="p">,</span> <span class="s2">&quot;str&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;kote&quot;</span><span class="p">,</span> <span class="s2">&quot;float&quot;</span><span class="p">),</span>
+        <span class="p">]</span>
+    <span class="p">),</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">ny_feature</span><span class="p">(</span><span class="n">navn</span><span class="p">,</span> <span class="n">kote</span><span class="p">,</span> <span class="n">easting</span><span class="p">,</span> <span class="n">northing</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Returner ny feature der passer til SCHEMA&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span> <span class="s2">&quot;coordinates&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">easting</span><span class="p">,</span> <span class="n">northing</span><span class="p">)},</span>
+        <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">(</span><span class="s2">&quot;navn&quot;</span><span class="p">,</span> <span class="n">navn</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;kote&quot;</span><span class="p">,</span> <span class="n">kote</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">),</span>
+    <span class="p">}</span>
+
+
+<span class="n">gnss_stationer</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">ny_feature</span><span class="p">(</span><span class="s2">&quot;SKEJ&quot;</span><span class="p">,</span> <span class="mf">72.028</span><span class="p">,</span> <span class="mf">573225.054</span><span class="p">,</span> <span class="mf">6227584.642</span><span class="p">),</span>
+    <span class="n">ny_feature</span><span class="p">(</span><span class="s2">&quot;BUDP&quot;</span><span class="p">,</span> <span class="mf">57.890</span><span class="p">,</span> <span class="mf">719707.285</span><span class="p">,</span> <span class="mf">6182582.500</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+    <span class="s2">&quot;ny_fil.shp&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;w&quot;</span><span class="p">,</span>
+    <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;ESRI Shapefile&quot;</span><span class="p">,</span>
+    <span class="n">crs</span><span class="o">=</span><span class="n">fiona</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">from_epsg</span><span class="p">(</span><span class="mi">25832</span><span class="p">),</span>  <span class="c1"># ETRS89 / UTM 32N</span>
+    <span class="n">schema</span><span class="o">=</span><span class="n">SCHEMA</span><span class="p">,</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">stationer</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">gnss_stationer</span><span class="p">:</span>
+        <span class="n">stationer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">station</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tilføjelse af data til et eksisterende datasæt er simplere. Det samme er skrivning af en ny fil
+med samme opbygning som en eksisterende. Eksempler på disse tilfælde findes i
+<a class="reference external" href="https://fiona.readthedocs.io/en/latest/manual.html#writing-vector-data">dokumentationen</a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Ved installation af Fiona følger kommandolinjeværktøjet <code class="docutils literal notranslate"><span class="pre">fio</span></code> og med. <code class="docutils literal notranslate"><span class="pre">fio</span></code> er et
+mere sammenhængende alternativ til OGRs kommandolinjeapplikationer. Læs mere
+<a class="reference external" href="https://fiona.readthedocs.io/en/latest/cli.html">her</a>.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="test.html"
+       title="forrige kapitel">← Test din kode</a>
+  </li>
+  <li class="next">
+    <a href="referencer.html"
+       title="næste kapitel">Referencer →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Ophavsret 2022, Styrelsen for Dataforsyning og Infrastruktur / Geografiske Referencer.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

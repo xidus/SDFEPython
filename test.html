@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html  lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>Test din kode</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Indeks" href="genindex.html" />
+  <link rel="search" title="Søg" href="search.html" />
+  <link rel="next" title="Gode Pythonpakker" href="pakker.html" />
+  <link rel="prev" title="Pakke-opbygning" href="package.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <img class="logo" src="_static/sdfilogo.jpg" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Hurtig søgning</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Søg" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#python-i-sdfi">Indhold:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="setup.html" class="reference internal ">Anbefalet opsætning</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tools.html" class="reference internal ">Udviklingsværktøjer</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="package.html" class="reference internal ">Pakke-opbygning</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Test din kode</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#perspektiver" class="reference internal">Perspektiver</a></li>
+                
+                  <li class="toctree-l2"><a href="#opsaetning" class="reference internal">Opsætning</a></li>
+                
+                  <li class="toctree-l2"><a href="#grundlaeggende-eksempler-med-pytest" class="reference internal">Grundlæggende eksempler med pytest</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pakker.html" class="reference internal ">Gode Pythonpakker</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="referencer.html" class="reference internal ">Referencer</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Test din kode</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="package.html"
+       title="forrige kapitel">← Pakke-opbygning</a>
+  </li>
+  <li class="next">
+    <a href="pakker.html"
+       title="næste kapitel">Gode Pythonpakker →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="test-din-kode">
+<span id="tests"></span><h1>Test din kode<a class="headerlink" href="#test-din-kode" title="Permalink til denne overskrift">¶</a></h1>
+<p>Testfunktionalitet er en væsentlig del af kvalitetssikringen af koden.
+Test-funktionaliteten bidrager primært med to ting:</p>
+<ul class="simple">
+<li><p>Udvikleren bliver udfordret på sit API-design.</p></li>
+<li><p>Kodens funktionalitet kan automatisk afprøves mange gange, og afviklingen
+kan bruges som en begrænsende faktor [<em>en.</em> gate] for, om udvikleren kan
+skubbe sine bidrag til det centrale arkiv på GitHub. På GitHub
+(eller generelt: den centrale udviklingsserver) bør éns
+continuous-integration pipeline sørge for at teste alle bidrag, inden de
+kan få lov til at blive lagt sammen med koden på hovedsporet.</p></li>
+</ul>
+<section id="perspektiver">
+<h2>Perspektiver<a class="headerlink" href="#perspektiver" title="Permalink til denne overskrift">¶</a></h2>
+<ul class="simple">
+<li><p>Det er nævnt af andre, at man først bør refaktorisere sin kode, når der en
+ekstra funktion i koden, der skal genbruge dét, man har skrevet i en samlet
+funktion/metode. Andre igen har nævnt, at det er en sund praksis at
+betragte sine enhedstests som dén ekstra funktion, der giver anledning til
+refaktoriseringen.</p></li>
+</ul>
+<section id="pytest">
+<h3><code class="docutils literal notranslate"><span class="pre">pytest</span></code><a class="headerlink" href="#pytest" title="Permalink til denne overskrift">¶</a></h3>
+<p>Vi anbefaler <a class="reference external" href="https://docs.pytest.org/">Pytest</a> som test-rammeværk.</p>
+</section>
+</section>
+<section id="opsaetning">
+<h2>Opsætning<a class="headerlink" href="#opsaetning" title="Permalink til denne overskrift">¶</a></h2>
+<p>Opsæt <code class="docutils literal notranslate"><span class="pre">pytest</span></code> i din pakkes <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> eller, for simple scripts, i en
+<code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code>-fil.</p>
+<p>Eksempel på opsætning i <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pytest.ini_options]</span><span class="w"></span>
+<span class="n">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;--strict-markers -r A -q&#39;</span><span class="w"></span>
+<span class="n">testpaths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&#39;tests&#39;</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Ovenstående eksempel viser en opsætning for en standard pakke-opsætning med en
+pakke-struktur som vist under kapitlet pakke-opbygning.</p>
+<p>Læs mere på pytests egen dokumentation for opsætningsmuligheder med disse
+formater.</p>
+</section>
+<section id="grundlaeggende-eksempler-med-pytest">
+<h2>Grundlæggende eksempler med <code class="docutils literal notranslate"><span class="pre">pytest</span></code><a class="headerlink" href="#grundlaeggende-eksempler-med-pytest" title="Permalink til denne overskrift">¶</a></h2>
+<p>Nedenstående er et eksempel på, hvordan man bygger test-funktionalitet op med
+pytest.</p>
+<p>Koden illustrerer også, hvordan man kan bruge Arrange, Act og Assert-paradigmet
+i forhold til opsætning af test-koden.</p>
+<p>Test-funktioner skal være stjerneklare, så man meget nemt kan se, hvad de
+tester (her hjælper lange funktionsnavne).</p>
+<p>Læseren af testen lærer samtidig, hvordan éns API skal bruges, jævnfør
+ovenstående idé med at lade test-funktioner være på lige fod med anden
+funktionalitet i koden, de tester.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">from</span> <span class="nn">brahmath.geometry</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">semi_perimeter</span><span class="p">,</span>
+ <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_semi_perimeter</span><span class="p">():</span>
+    <span class="c1"># Single setup for clarity</span>
+    <span class="c1"># Arrange</span>
+    <span class="n">sides</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Act</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">semi_perimeter</span><span class="p">(</span><span class="o">*</span><span class="n">sides</span><span class="p">)</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="c1"># Assert</span>
+    <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">expected</span><span class="p">),</span> \
+        <span class="n">default_assertionerror_message</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+
+    <span class="c1"># Multiple scenarios</span>
+    <span class="n">test_data</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">sides</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span> <span class="ow">in</span> <span class="n">test_data</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">semi_perimeter</span><span class="p">(</span><span class="o">*</span><span class="n">sides</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">expected</span><span class="p">),</span> \
+            <span class="n">default_assertionerror_message</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>I eksemplet ovenfor er vist, hvordan pytest udnytter Pythons indbyggede
+<code class="docutils literal notranslate"><span class="pre">assert</span></code>-statement som primære tilgang til at udtrykke, hvad man forventer.</p>
+<p>Alle Python-moduler og -funktioner på konfigurations-stien til
+test-funktionaliteten bliver af pytest betragtet som test-funktionalitet. Der
+er altså ikke behov for, at man som udgangspunkt importerer test-rammeværkets
+moduler.</p>
+<p>Men mere avancerede muligheder eksisterer dog, hvilket kan ses på
+<a class="reference external" href="https://docs.pytest.org/">Pytest</a>-dokumentationen.</p>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="package.html"
+       title="forrige kapitel">← Pakke-opbygning</a>
+  </li>
+  <li class="next">
+    <a href="pakker.html"
+       title="næste kapitel">Gode Pythonpakker →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Ophavsret 2022, Styrelsen for Dataforsyning og Infrastruktur / Geografiske Referencer.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

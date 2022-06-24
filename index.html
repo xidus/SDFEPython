@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html  lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>Python i SDFI</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Indeks" href="genindex.html" />
+  <link rel="search" title="Søg" href="search.html" />
+  <link rel="next" title="Anbefalet opsætning" href="setup.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="#" class="home-link">
+    
+      <img class="logo" src="_static/sdfilogo.jpg" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Hurtig søgning</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Søg" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="#python-i-sdfi">Indhold:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="setup.html" class="reference internal ">Anbefalet opsætning</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tools.html" class="reference internal ">Udviklingsværktøjer</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="package.html" class="reference internal ">Pakke-opbygning</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="test.html" class="reference internal ">Test din kode</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pakker.html" class="reference internal ">Gode Pythonpakker</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="referencer.html" class="reference internal ">Referencer</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+    
+    <li>Python i SDFI</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="next">
+    <a href="setup.html"
+       title="næste kapitel">Anbefalet opsætning →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="python-i-sdfi">
+<h1>Python i SDFI<a class="headerlink" href="#python-i-sdfi" title="Permalink til denne overskrift">¶</a></h1>
+<p>Denne webside beskriver den anbefalede brug af Python i SDFI. Siden er kurateret
+af kontoret for Geografiske Referencer og forsøger at beskrive en moderne og
+udbredt praksis for udvikling i Python.</p>
+<p>Anbefalingerne er skabt med henblik på at etablere en vis ensartethed i måden
+Python anvendes i styrelsen og som støtte til fx uerfarne brugere og nyansatte.</p>
+<p>Målgruppen for denne side er alle i SDFI der beskæftiger sig med Python. SDFIs
+Pythonbrugere er mangfoldige og inkluderer blandt andet fuldtidsudviklere,
+dataanalytikere, GIS-specialister, studentermedhjælper og endda fra tid til anden
+en kontorchef. Afhængig af hvilken profil man besidder vil mere eller mindre
+af denne side indhold være relevant.</p>
+<p>Materialet på denne side er ikke mejslet i sten og må forventes at udvikles sig
+over tid.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Indhold:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Anbefalet opsætning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Udviklingsværktøjer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Pakke-opbygning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">Test din kode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pakker.html">Gode Pythonpakker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="referencer.html">Referencer</a></li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="next">
+    <a href="setup.html"
+       title="næste kapitel">Anbefalet opsætning →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Ophavsret 2022, Styrelsen for Dataforsyning og Infrastruktur / Geografiske Referencer.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

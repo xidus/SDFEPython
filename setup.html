@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html  lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>Anbefalet opsætning</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Indeks" href="genindex.html" />
+  <link rel="search" title="Søg" href="search.html" />
+  <link rel="next" title="Udviklingsværktøjer" href="tools.html" />
+  <link rel="prev" title="Python i SDFI" href="index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <img class="logo" src="_static/sdfilogo.jpg" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Hurtig søgning</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Søg" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#python-i-sdfi">Indhold:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Anbefalet opsætning</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#hurtigruten" class="reference internal">Hurtigruten</a></li>
+                
+                  <li class="toctree-l2"><a href="#den-fulde-vejledning" class="reference internal">Den fulde vejledning</a></li>
+                
+                  <li class="toctree-l2"><a href="#demonstration" class="reference internal">Demonstration</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="tools.html" class="reference internal ">Udviklingsværktøjer</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="package.html" class="reference internal ">Pakke-opbygning</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="test.html" class="reference internal ">Test din kode</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pakker.html" class="reference internal ">Gode Pythonpakker</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="referencer.html" class="reference internal ">Referencer</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Anbefalet opsætning</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="index.html"
+       title="forrige kapitel">← Python i SDFI</a>
+  </li>
+  <li class="next">
+    <a href="tools.html"
+       title="næste kapitel">Udviklingsværktøjer →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="anbefalet-opsaetning">
+<span id="setup"></span><h1>Anbefalet opsætning<a class="headerlink" href="#anbefalet-opsaetning" title="Permalink til denne overskrift">¶</a></h1>
+<p>Python kan installeres på mange forskellige måder. Erfaringsmæssigt har det vist
+sig at være fordelagtigt at undgå den officielle distribution fra <a class="reference external" href="https://www.python.org/psf/">The Python
+Software Foundation</a> og i stedet bruge en tredjeparts distribution som fx
+<a class="reference external" href="https://www.anaconda.com/">Anaconda</a>. Anaconda er et bredt anvendt rammeværk der gør det muligt at
+arbejde med mange forskellige isolerede udviklingsmiljøer. Grundet forskellige
+licensforhold er Anaconda ikke egnet til brug i SDFI, hvorfor vi i stedet
+anbefaler at bruge <a class="reference external" href="https://mamba.readthedocs.io/en/latest/">Mamba</a>, der er et frit og åbent alternativ til Anaconda.
+MambaForge er som udgangspunkt sat op til kun at hente pakker fra kanalen
+<code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>, som er en organisation af stabile og opdaterede versioner af en
+lang række pakker til en bred modtagergruppe. (Læs mere her: <a class="reference external" href="https://conda-forge.org/docs/user/introduction.html#why-conda-forge">Why conda-forge?</a>.)</p>
+<p>Herunder beskrives installationen af Mamba og de vigtigste funktioner i Mamba
+demonstreres.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemærk</p>
+<p>Denne vejledning er til Windows. Linux-brugere henvises til
+<a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation.html">Mambas officielle dokumentation</a>.</p>
+</div>
+<p>Installationen af Mamba er i store træk ukompliceret og installeres som de
+fleste andre programmer på Windows. For de fleste vil noter beskrevet i
+afsnittet <a class="reference internal" href="#hurtigruten"><span class="std std-ref">Hurtigruten</span></a> være tilstrækkeligt, men en mere grundig vejledning
+er også at finde herunder i afsnittet <a class="reference internal" href="#fuld-vejledning"><span class="std std-ref">Den fulde vejledning</span></a>.</p>
+<section id="hurtigruten">
+<span id="id1"></span><h2>Hurtigruten<a class="headerlink" href="#hurtigruten" title="Permalink til denne overskrift">¶</a></h2>
+<ul class="simple">
+<li><p>Download <a class="reference external" href="https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe">Mamba installationsprogrammet</a></p></li>
+<li><dl class="simple">
+<dt>Kør installationsprogrammet og klik dig gennem de enkelte skridt, vælg undervejs at</dt><dd><ul>
+<li><p>Installere »just for me«</p></li>
+<li><p>Placere filerne under <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;brugernavn&gt;\AppData\Local\mambaforge</span></code></p></li>
+<li><p>»Register Mambaforge as my default Python«</p></li>
+<li><p>»Clear the package cache upon completion«</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="den-fulde-vejledning">
+<span id="fuld-vejledning"></span><h2>Den fulde vejledning<a class="headerlink" href="#den-fulde-vejledning" title="Permalink til denne overskrift">¶</a></h2>
+<p>Start med at Downloade <a class="reference external" href="https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe">Mamba installationsprogrammet</a> og kør
+installationsprogrammet.</p>
+<figure class="align-center" id="id2">
+<img alt="Mamba installation" src="_images/mamba-install-01.png" />
+<figcaption>
+<p><span class="caption-text"><em>Start på Mambas installation</em></span><a class="headerlink" href="#id2" title="Permahenvisning til dette billede">¶</a></p>
+</figcaption>
+</figure>
+<p>Godkend licensbetingelserne. Mamba er frigivet under BSD-3 licensen,
+hvilket er uproblematisk for os som brugere.</p>
+<figure class="align-center" id="id3">
+<img alt="licensforhold" src="_images/mamba-install-02.png" />
+<figcaption>
+<p><span class="caption-text"><em>Licensforhold</em></span><a class="headerlink" href="#id3" title="Permahenvisning til dette billede">¶</a></p>
+</figcaption>
+</figure>
+<p>Vælg installationstype. Ved at vælge »Just for me« her, installerer
+vi programmet under den aktuelle bruger og undgår derved at skulle
+taste en administratoradgangskode</p>
+<figure class="align-center" id="id4">
+<img alt="Installationstype" src="_images/mamba-install-03.png" />
+<figcaption>
+<p><span class="caption-text"><em>Installationstype</em></span><a class="headerlink" href="#id4" title="Permahenvisning til dette billede">¶</a></p>
+</figcaption>
+</figure>
+<p>Vælg installationsplacering. Installationsprogrammet vælger automatisk en
+standardiseret placering som bør følges. Tryk næste.</p>
+<figure class="align-center" id="id5">
+<img alt="Installationsplacering" src="_images/mamba-install-04.png" />
+<figcaption>
+<p><span class="caption-text"><em>Installationsplacering</em></span><a class="headerlink" href="#id5" title="Permahenvisning til dette billede">¶</a></p>
+</figcaption>
+</figure>
+<p>Sidste skridt i installationen er at tage stilling til avancerede
+indstillinger. Vi følger de anbefalede valgmuligheder:</p>
+<ul class="simple">
+<li><p>Registrér Mambaforge som default Python installation</p></li>
+<li><p>Ryd cache efter installation</p></li>
+</ul>
+<p>Førstnævnte er det bedste valg for de fleste. Hvis det <strong>ikke</strong> er det bedste
+valg for dig ved du det godt og kan med fordel vælge anderledes. Alle andre bør
+følge anbefalingen her.</p>
+<figure class="align-center" id="id6">
+<img alt="Avancerede installationsvalg" src="_images/mamba-install-05.png" />
+<figcaption>
+<p><span class="caption-text"><em>Avancerede installationsvalg</em></span><a class="headerlink" href="#id6" title="Permahenvisning til dette billede">¶</a></p>
+</figcaption>
+</figure>
+<p>Afvent at installationsprogrammet kører færdig.</p>
+</section>
+<section id="demonstration">
+<h2>Demonstration<a class="headerlink" href="#demonstration" title="Permalink til denne overskrift">¶</a></h2>
+<p>Brug af Python via Mambaforge sker som udgangspunkt i den medfølgende
+terminal, der går under navnet »Miniforge Prompt (mambaforge)«. Find den
+i Windows‹ startmenu.</p>
+<figure class="align-center" id="id7">
+<img alt="Miniforge prompt i startmenuen" src="_images/mamba-install-06.png" />
+<figcaption>
+<p><span class="caption-text"><em>Miniforge prompt i startmenuen</em></span><a class="headerlink" href="#id7" title="Permahenvisning til dette billede">¶</a></p>
+</figcaption>
+</figure>
+<p>Når prompten åbnes mødes du af et terminalvindue med følgende indhold:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base) C:\&gt;
+</pre></div>
+</div>
+<p>hvilket indikerer at du arbejder i Mambas standardmiljø <code class="docutils literal notranslate"><span class="pre">base</span></code>. Det anbefales
+aldrig at bruge dette og i stedet oprette dedikerede miljøer til hvert enkelt
+projekt der arbejdes på. Denne webside er eksempelvis skabt i et miljø der
+hedder <code class="docutils literal notranslate"><span class="pre">sdfipython</span></code>, der er oprettet med kommandoen <code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">create</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base) C:\&gt;mamba create -n sdfipython python sphinx
+
+                __    __    __    __
+                /  \  /  \  /  \  /  \
+                /    \/    \/    \/    \
+███████████████/  /██/  /██/  /██/  /████████████████████████
+            /  / \   / \   / \   / \  \____
+            /  /   \_/   \_/   \_/   \    o \__,
+            / _/                       \_____/  `
+            |/
+        ███╗   ███╗ █████╗ ███╗   ███╗██████╗  █████╗
+        ████╗ ████║██╔══██╗████╗ ████║██╔══██╗██╔══██╗
+        ██╔████╔██║███████║██╔████╔██║██████╔╝███████║
+        ██║╚██╔╝██║██╔══██║██║╚██╔╝██║██╔══██╗██╔══██║
+        ██║ ╚═╝ ██║██║  ██║██║ ╚═╝ ██║██████╔╝██║  ██║
+        ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝ ╚═╝  ╚═╝
+
+        mamba (0.19.0) supported by @QuantStack
+
+        GitHub:  https://github.com/mamba-org/mamba
+        Twitter: https://twitter.com/QuantStack
+
+█████████████████████████████████████████████████████████████
+
+
+Looking for: [&#39;python&#39;, &#39;sphinx&#39;]
+
+conda-forge/win-64       Using cache
+conda-forge/noarch       Using cache
+pkgs/msys2/win-64        [====================] (00m:00s) No change
+pkgs/main/noarch         [====================] (00m:00s) No change
+pkgs/r/win-64            [====================] (00m:00s) No change
+pkgs/main/win-64         [====================] (00m:00s) No change
+pkgs/r/noarch            [====================] (00m:00s) No change
+pkgs/msys2/noarch        [====================] (00m:00s) No change
+Transaction
+
+Prefix: C:\Users\b012349\AppData\Local\mambaforge\envs\sdfipython
+
+Updating specs:
+
+- python
+- sphinx
+
+
+Package                               Version  Build               Channel                  Size
+----------------------------------------------------------------------------------------------------
+Install:
+----------------------------------------------------------------------------------------------------
+
++ alabaster                            0.7.12  py_0                conda-forge/noarch     Cached
++ babel                                 2.9.1  pyh44b312d_0        conda-forge/noarch     Cached
++ brotlipy                              0.7.0  py310he2412df_1003  conda-forge/win-64     Cached
++ bzip2                                 1.0.8  h8ffe710_4          conda-forge/win-64     Cached
++ ca-certificates                   2021.10.8  h5b45459_0          conda-forge/win-64     Cached
++ certifi                           2021.10.8  py310h5588dad_1     conda-forge/win-64     Cached
++ cffi                                 1.15.0  py310hcbf9ad4_0     conda-forge/win-64     Cached
++ charset-normalizer                   2.0.11  pyhd8ed1ab_0        conda-forge/noarch      35 KB
++ colorama                              0.4.4  pyh9f0ad1d_0        conda-forge/noarch     Cached
++ cryptography                         36.0.0  py310h21b164f_0     pkgs/main/win-64       Cached
++ docutils                             0.17.1  py310h5588dad_1     conda-forge/win-64     Cached
++ idna                                    3.3  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ imagesize                             1.3.0  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ importlib-metadata                   4.10.1  py310h5588dad_0     conda-forge/win-64     Cached
++ jinja2                                3.0.3  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ libffi                                3.4.2  h8ffe710_5          conda-forge/win-64     Cached
++ libzlib                              1.2.11  h8ffe710_1013       conda-forge/win-64     Cached
++ markupsafe                            2.0.1  py310he2412df_1     conda-forge/win-64     Cached
++ openssl                               3.0.0  h8ffe710_2          conda-forge/win-64     Cached
++ packaging                              21.3  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ pip                                  22.0.3  pyhd8ed1ab_0        conda-forge/noarch       1 MB
++ pycparser                              2.21  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ pygments                             2.11.2  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ pyopenssl                            22.0.0  pyhd8ed1ab_0        conda-forge/noarch      49 KB
++ pyparsing                             3.0.7  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ pysocks                               1.7.1  py310h5588dad_4     conda-forge/win-64     Cached
++ python                               3.10.2  hcf16a7b_3_cpython  conda-forge/win-64      16 MB
++ python_abi                             3.10  2_cp310             conda-forge/win-64     Cached
++ pytz                                 2021.3  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ requests                             2.27.1  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ setuptools                           60.8.1  py310h5588dad_0     conda-forge/win-64       1 MB
++ snowballstemmer                       2.2.0  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ sphinx                                4.4.0  pyh6c4a22f_1        conda-forge/noarch     Cached
++ sphinxcontrib-applehelp               1.0.2  py_0                conda-forge/noarch     Cached
++ sphinxcontrib-devhelp                 1.0.2  py_0                conda-forge/noarch     Cached
++ sphinxcontrib-htmlhelp                2.0.0  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ sphinxcontrib-jsmath                  1.0.1  py_0                conda-forge/noarch     Cached
++ sphinxcontrib-qthelp                  1.0.3  py_0                conda-forge/noarch     Cached
++ sphinxcontrib-serializinghtml         1.1.5  pyhd8ed1ab_1        conda-forge/noarch     Cached
++ sqlite                               3.37.0  h8ffe710_0          conda-forge/win-64     Cached
++ tk                                   8.6.11  h8ffe710_1          conda-forge/win-64     Cached
++ tzdata                                2021e  he74cb21_0          conda-forge/noarch     Cached
++ ucrt                           10.0.20348.0  h57928b3_0          conda-forge/win-64     Cached
++ urllib3                              1.26.8  pyhd8ed1ab_1        conda-forge/noarch     Cached
++ vc                                     14.2  hb210afc_6          conda-forge/win-64     Cached
++ vs2015_runtime                  14.29.30037  h902a5da_6          conda-forge/win-64     Cached
++ wheel                                0.37.1  pyhd8ed1ab_0        conda-forge/noarch     Cached
++ win_inet_pton                         1.1.0  py310h5588dad_3     conda-forge/win-64     Cached
++ xz                                    5.2.5  h62dcd97_1          conda-forge/win-64     Cached
++ zipp                                  3.7.0  pyhd8ed1ab_1        conda-forge/noarch      12 KB
+
+Summary:
+
+Install: 50 packages
+
+Total download: 19 MB
+
+----------------------------------------------------------------------------------------------------
+
+Confirm changes: [Y/n]
+</pre></div>
+</div>
+<p>Tryk <code class="docutils literal notranslate"><span class="pre">Y</span></code> for at bekræfte oprettelse af det nye miljø</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Finished zipp                                 (00m:00s)              12 KB     60 KB/s
+Finished pyopenssl                            (00m:00s)              49 KB    169 KB/s
+Finished charset-normalizer                   (00m:00s)              35 KB     38 KB/s
+Finished pip                                  (00m:00s)               1 MB      2 MB/s
+Finished setuptools                           (00m:02s)               1 MB    386 KB/s
+Finished python                               (00m:10s)              16 MB      1 MB/s
+Downloading  [=====================================================================] (00m:34s)    1.75 MB/s
+Extracting   [=====================================================================] (00m:33s)        6 / 6
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate sdfipython
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+
+(base) C:\&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Bemærk</p>
+<p>Med Mamba kan du bruge <code class="docutils literal notranslate"><span class="pre">conda</span></code> kommandoen ligesom i Anaconda, da den
+fungerer som et alias for kommandoen <code class="docutils literal notranslate"><span class="pre">mamba</span></code>. De to applikationer er tæt
+relaterede og der vil ofte bliver foreslået brug af <code class="docutils literal notranslate"><span class="pre">conda</span></code> i de tekster
+programmet selv skriver i terminalen.</p>
+</div>
+<p>Herefter kan vi aktivere det nye miljø</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(base) C:\&gt;mamba activate sdfipython
+
+(sdfipython) C:\&gt;
+</pre></div>
+</div>
+<p>Bemærk at der nu står <code class="docutils literal notranslate"><span class="pre">sdfipython</span></code> i parantesen før stien.</p>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="index.html"
+       title="forrige kapitel">← Python i SDFI</a>
+  </li>
+  <li class="next">
+    <a href="tools.html"
+       title="næste kapitel">Udviklingsværktøjer →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Ophavsret 2022, Styrelsen for Dataforsyning og Infrastruktur / Geografiske Referencer.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>
