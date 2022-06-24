@@ -42,21 +42,12 @@ Hurtigruten
     *   Installér "just for me"
     *   Placere filerne under ``C:\Users\<brugernavn>\AppData\Local\mambaforge``
     *   "Register Mambaforge as my default Python"
+    *   Tilvælg "Add MambaForge to my PATH environment variable"
     *   "Clear the package cache upon completion"
 
-*   Tilføj dernæst følgende stier til din lokal ``PATH`` miljø-variabel, så du i
-    en shell-terminal og i dit integrerede udviklingsmiljø kan bruge kommandoen
-    ``mamba`` uden at angive den komplette sti til programmet:
-
-    .. code-block:: none
-
-        %LocalAppData%\mambaforge
-        %LocalAppData%\mambaforge\Library\bin
-        %LocalAppData%\mambaforge\Scripts
-
-    hvor `%LocalAppData%
-    <https://www.advancedinstaller.com/appdata-localappdata-programdata.html>`__
-    henviser til mappen ``C:\Users\<username>\AppData\Local``
+Når du har tilføj dernæst følgende stier til din lokal ``PATH`` miljø-variabel,
+kan du i en shell-terminal og i dit integrerede udviklingsmiljø kan bruge
+kommandoen ``mamba`` uden at angive den komplette sti til programmet:
 
 
 .. _fuld_vejledning:
