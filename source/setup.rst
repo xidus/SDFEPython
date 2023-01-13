@@ -45,9 +45,9 @@ Hurtigruten
     *   Tilvælg "Add MambaForge to my PATH environment variable"
     *   "Clear the package cache upon completion"
 
-Når du har tilføj dernæst følgende stier til din lokal ``PATH`` miljø-variabel,
-kan du i en shell-terminal og i dit integrerede udviklingsmiljø kan bruge
-kommandoen ``mamba`` uden at angive den komplette sti til programmet:
+Med tilføjelsen af stien til MambaForge til din lokale ``PATH`` miljø-variabel,
+kan du fremover i en shell-terminal og i dit integrerede udviklingsmiljø bruge
+kommandoen ``mamba`` uden at angive den komplette sti til programmet.
 
 
 .. _fuld_vejledning:
